@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EditPlayerVC.h"
 
-@interface NewGameVC : UIViewController
+
+@interface NewGameVC : UIViewController <editPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonPlayerOne;
 @property (weak, nonatomic) IBOutlet UIButton *buttonPlayerTwo;
 @property (weak, nonatomic) IBOutlet UIButton *buttonPlayerThree;
 @property (weak, nonatomic) IBOutlet UIButton *buttonPlayerFour;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelError;
 
 
 

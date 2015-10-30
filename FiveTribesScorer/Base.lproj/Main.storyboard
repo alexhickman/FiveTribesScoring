@@ -116,6 +116,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cM6-Ig-O2u" userLabel="Player One">
+                                <rect key="frame" x="124" y="125" width="104" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="+ New Player"/>
+                                <connections>
+                                    <action selector="buttonPlayerOne:" destination="6K0-LI-Gob" eventType="touchUpInside" id="VPF-sT-Rmc"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ha-mx-547" userLabel="Player Two">
                                 <rect key="frame" x="124" y="187" width="104" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -132,7 +140,7 @@
                                     <action selector="buttonPlayerThree:" destination="6K0-LI-Gob" eventType="touchUpInside" id="uJ3-Tq-3fQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zo-5G-gi5" userLabel="Player Four">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zo-5G-gi5" userLabel="Player Four">
                                 <rect key="frame" x="124" y="317" width="104" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="+ New Player"/>
@@ -140,14 +148,12 @@
                                     <action selector="buttonPlayerFour:" destination="6K0-LI-Gob" eventType="touchUpInside" id="eAp-Mj-MXK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cM6-Ig-O2u" userLabel="Player One">
-                                <rect key="frame" x="124" y="125" width="104" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="+ New Player"/>
-                                <connections>
-                                    <action selector="buttonPlayerOne:" destination="6K0-LI-Gob" eventType="touchUpInside" id="VPF-sT-Rmc"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select 2-4 Players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwg-Ro-2K8">
+                                <rect key="frame" x="20" y="81" width="280" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -173,6 +179,7 @@
                         <outlet property="buttonPlayerOne" destination="cM6-Ig-O2u" id="QH0-hw-Mz4"/>
                         <outlet property="buttonPlayerThree" destination="Nk8-J7-035" id="qhI-MW-Euv"/>
                         <outlet property="buttonPlayerTwo" destination="8Ha-mx-547" id="tHG-T1-G7w"/>
+                        <outlet property="labelError" destination="bwg-Ro-2K8" id="VK0-iq-LcR"/>
                         <segue destination="22Y-J5-bGS" kind="push" identifier="segueCurrentGameVC" id="Pcf-wN-tua"/>
                         <segue destination="rDT-Sg-Xtj" kind="modal" identifier="segueEditPlayerModal" id="8a7-EY-GTK"/>
                     </connections>
@@ -192,8 +199,32 @@
                     <view key="view" contentMode="scaleToFill" id="Hlt-jA-she">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDu-se-EUd">
+                                <rect key="frame" x="142" y="195" width="36" height="30"/>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="buttonClear:" destination="rDT-Sg-Xtj" eventType="touchUpInside" id="OQ4-Ur-1KH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ez1-Aw-z6Q">
+                                <rect key="frame" x="136" y="256" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="buttonSubmit:" destination="rDT-Sg-Xtj" eventType="touchUpInside" id="iCg-Sc-b7d"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tJ5-9a-XFM">
+                                <rect key="frame" x="76" y="106" width="168" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="tJ5-9a-XFM" id="ei8-AQ-fdL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCp-DW-2Fe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

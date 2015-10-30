@@ -10,4 +10,23 @@
 
 @implementation EditPlayerVC
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.textField.text = self.buttonName;
+}
+
+- (IBAction)buttonClear:(id)sender
+{
+    [self.delegateCustom nameChange:@"+ New Player"];
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (IBAction)buttonSubmit:(id)sender
+{
+    [self.delegateCustom nameChange:self.textField.text];
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+
 @end
