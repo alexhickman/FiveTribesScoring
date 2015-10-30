@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		8821D06D1BE2E3AB009C0E17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D06C1BE2E3AB009C0E17 /* main.m */; };
 		8821D0701BE2E3AB009C0E17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D06F1BE2E3AB009C0E17 /* AppDelegate.m */; };
-		8821D0731BE2E3AB009C0E17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0721BE2E3AB009C0E17 /* ViewController.m */; };
 		8821D0761BE2E3AB009C0E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8821D0741BE2E3AB009C0E17 /* Main.storyboard */; };
 		8821D0781BE2E3AB009C0E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8821D0771BE2E3AB009C0E17 /* Assets.xcassets */; };
 		8821D07B1BE2E3AB009C0E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8821D0791BE2E3AB009C0E17 /* LaunchScreen.storyboard */; };
 		8821D0861BE2E3AC009C0E17 /* FiveTribesScorerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0851BE2E3AC009C0E17 /* FiveTribesScorerTests.m */; };
 		8821D0911BE2E3AC009C0E17 /* FiveTribesScorerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0901BE2E3AC009C0E17 /* FiveTribesScorerUITests.m */; };
+		8821D0A01BE2E43C009C0E17 /* NewGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D09F1BE2E43C009C0E17 /* NewGameVC.m */; };
+		8821D0A31BE2E476009C0E17 /* CurrentGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0A21BE2E476009C0E17 /* CurrentGameVC.m */; };
+		8821D0A71BE2E530009C0E17 /* ScoringPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0A61BE2E530009C0E17 /* ScoringPlayerVC.m */; };
+		8821D0AA1BE2E7A0009C0E17 /* MerchandiseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0A91BE2E7A0009C0E17 /* MerchandiseVC.m */; };
+		8821D0AD1BE2EA05009C0E17 /* HomeScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */; };
+		8821D0B01BE2EBD7009C0E17 /* HistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +44,6 @@
 		8821D06C1BE2E3AB009C0E17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8821D06E1BE2E3AB009C0E17 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8821D06F1BE2E3AB009C0E17 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8821D0711BE2E3AB009C0E17 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8821D0721BE2E3AB009C0E17 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8821D0751BE2E3AB009C0E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8821D0771BE2E3AB009C0E17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8821D07A1BE2E3AB009C0E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +54,18 @@
 		8821D08C1BE2E3AC009C0E17 /* FiveTribesScorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FiveTribesScorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8821D0901BE2E3AC009C0E17 /* FiveTribesScorerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FiveTribesScorerUITests.m; sourceTree = "<group>"; };
 		8821D0921BE2E3AC009C0E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8821D09E1BE2E43C009C0E17 /* NewGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGameVC.h; sourceTree = "<group>"; };
+		8821D09F1BE2E43C009C0E17 /* NewGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGameVC.m; sourceTree = "<group>"; };
+		8821D0A11BE2E476009C0E17 /* CurrentGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentGameVC.h; sourceTree = "<group>"; };
+		8821D0A21BE2E476009C0E17 /* CurrentGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentGameVC.m; sourceTree = "<group>"; };
+		8821D0A51BE2E530009C0E17 /* ScoringPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoringPlayerVC.h; sourceTree = "<group>"; };
+		8821D0A61BE2E530009C0E17 /* ScoringPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoringPlayerVC.m; sourceTree = "<group>"; };
+		8821D0A81BE2E7A0009C0E17 /* MerchandiseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseVC.h; sourceTree = "<group>"; };
+		8821D0A91BE2E7A0009C0E17 /* MerchandiseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseVC.m; sourceTree = "<group>"; };
+		8821D0AB1BE2EA05009C0E17 /* HomeScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScreenVC.h; sourceTree = "<group>"; };
+		8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScreenVC.m; sourceTree = "<group>"; };
+		8821D0AE1BE2EBD7009C0E17 /* HistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryVC.h; sourceTree = "<group>"; };
+		8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +118,8 @@
 			children = (
 				8821D06E1BE2E3AB009C0E17 /* AppDelegate.h */,
 				8821D06F1BE2E3AB009C0E17 /* AppDelegate.m */,
-				8821D0711BE2E3AB009C0E17 /* ViewController.h */,
-				8821D0721BE2E3AB009C0E17 /* ViewController.m */,
 				8821D0741BE2E3AB009C0E17 /* Main.storyboard */,
+				8821D0A41BE2E48A009C0E17 /* ViewControllers */,
 				8821D0771BE2E3AB009C0E17 /* Assets.xcassets */,
 				8821D0791BE2E3AB009C0E17 /* LaunchScreen.storyboard */,
 				8821D07C1BE2E3AB009C0E17 /* Info.plist */,
@@ -138,6 +152,25 @@
 				8821D0921BE2E3AC009C0E17 /* Info.plist */,
 			);
 			path = FiveTribesScorerUITests;
+			sourceTree = "<group>";
+		};
+		8821D0A41BE2E48A009C0E17 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8821D0AB1BE2EA05009C0E17 /* HomeScreenVC.h */,
+				8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */,
+				8821D0AE1BE2EBD7009C0E17 /* HistoryVC.h */,
+				8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */,
+				8821D09E1BE2E43C009C0E17 /* NewGameVC.h */,
+				8821D09F1BE2E43C009C0E17 /* NewGameVC.m */,
+				8821D0A11BE2E476009C0E17 /* CurrentGameVC.h */,
+				8821D0A21BE2E476009C0E17 /* CurrentGameVC.m */,
+				8821D0A51BE2E530009C0E17 /* ScoringPlayerVC.h */,
+				8821D0A61BE2E530009C0E17 /* ScoringPlayerVC.m */,
+				8821D0A81BE2E7A0009C0E17 /* MerchandiseVC.h */,
+				8821D0A91BE2E7A0009C0E17 /* MerchandiseVC.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +306,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8821D0731BE2E3AB009C0E17 /* ViewController.m in Sources */,
+				8821D0AA1BE2E7A0009C0E17 /* MerchandiseVC.m in Sources */,
+				8821D0B01BE2EBD7009C0E17 /* HistoryVC.m in Sources */,
 				8821D0701BE2E3AB009C0E17 /* AppDelegate.m in Sources */,
+				8821D0AD1BE2EA05009C0E17 /* HomeScreenVC.m in Sources */,
 				8821D06D1BE2E3AB009C0E17 /* main.m in Sources */,
+				8821D0A71BE2E530009C0E17 /* ScoringPlayerVC.m in Sources */,
+				8821D0A01BE2E43C009C0E17 /* NewGameVC.m in Sources */,
+				8821D0A31BE2E476009C0E17 /* CurrentGameVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

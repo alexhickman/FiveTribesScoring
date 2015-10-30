@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MerchandiseVC.h
 //  FiveTribesScorer
 //
 //  Created by Hickman on 10/29/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MerchandiseVC : UIViewController
 
 @end
-
