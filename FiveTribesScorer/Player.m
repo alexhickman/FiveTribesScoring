@@ -10,10 +10,9 @@
 
 @implementation Player
 
-+(Player *)newPlayer:(NSString *)name
++(Player *)newPlayer
 {
     Player *newPlayer = [[Player alloc]init];
-    newPlayer.name = name;
     return newPlayer;
 }
 

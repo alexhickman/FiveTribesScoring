@@ -13,7 +13,9 @@
 @implementation HomeScreenVC
 
 - (IBAction)buttonNewGame:(id)sender {
+    [self performSegueWithIdentifier:@"segueNewGame" sender:self];
 }
+
 - (IBAction)buttonHistory:(id)sender {
 }
 

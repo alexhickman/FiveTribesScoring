@@ -10,4 +10,9 @@
 
 @interface Game : NSObject
 
+@property (nonatomic) NSInteger numberOfPlayers;
+
++(Game *)newGame:(NSInteger)numberOfPlayers;
+- (instancetype)initWithPlayers:(NSInteger)numberOfPlayers;
+
 @end

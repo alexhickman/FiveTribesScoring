@@ -23,6 +23,9 @@
 @property (nonatomic) int djinnCardScore;
 @property (nonatomic) int totalScore;
 
++(Player *)newPlayer;
+
+
 
 
 @end

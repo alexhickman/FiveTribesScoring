@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewGameVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
-
-@property (weak, nonatomic) IBOutlet UITableView *tableViewNewGame;
+@interface NewGameVC : UIViewController
 
 
 @end

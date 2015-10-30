@@ -22,6 +22,7 @@
 		8821D0AD1BE2EA05009C0E17 /* HomeScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */; };
 		8821D0B01BE2EBD7009C0E17 /* HistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */; };
 		889FD8A61BE3F4E9001F2EC8 /* NewPlayerTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 889FD8A51BE3F4E9001F2EC8 /* NewPlayerTVCell.m */; };
+		889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889FD8A71BE3FC08001F2EC8 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryVC.m; sourceTree = "<group>"; };
 		889FD8A41BE3F4E9001F2EC8 /* NewPlayerTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPlayerTVCell.h; sourceTree = "<group>"; };
 		889FD8A51BE3F4E9001F2EC8 /* NewPlayerTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPlayerTVCell.m; sourceTree = "<group>"; };
+		889FD8A81BE3FC08001F2EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		8821D06A1BE2E3AB009C0E17 /* FiveTribesScorer */ = {
 			isa = PBXGroup;
 			children = (
+				889FD8A71BE3FC08001F2EC8 /* Main.storyboard */,
 				8821D06E1BE2E3AB009C0E17 /* AppDelegate.h */,
 				8821D06F1BE2E3AB009C0E17 /* AppDelegate.m */,
 				8821A2DB1BE3E96500D2CD4A /* Player.h */,
@@ -169,10 +172,10 @@
 		8821D0A41BE2E48A009C0E17 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8821D0AB1BE2EA05009C0E17 /* HomeScreenVC.h */,
-				8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */,
 				8821D0AE1BE2EBD7009C0E17 /* HistoryVC.h */,
 				8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */,
+				8821D0AB1BE2EA05009C0E17 /* HomeScreenVC.h */,
+				8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */,
 				8821D09E1BE2E43C009C0E17 /* NewGameVC.h */,
 				8821D09F1BE2E43C009C0E17 /* NewGameVC.m */,
 				8821D0A11BE2E476009C0E17 /* CurrentGameVC.h */,
@@ -291,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */,
 				8821D07B1BE2E3AB009C0E17 /* LaunchScreen.storyboard in Resources */,
 				8821D0781BE2E3AB009C0E17 /* Assets.xcassets in Resources */,
 			);
@@ -369,6 +373,14 @@
 				8821D07A1BE2E3AB009C0E17 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		889FD8A71BE3FC08001F2EC8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				889FD8A81BE3FC08001F2EC8 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

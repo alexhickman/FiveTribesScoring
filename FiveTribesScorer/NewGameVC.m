@@ -8,13 +8,20 @@
 
 #import "NewGameVC.h"
 #import "NewPlayerTVCell.h"
+#import "Game.h"
 
 @implementation NewGameVC
+{
+    Game *newGame;
+}
+
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"New Game";
+    newGame = [[Game alloc]initWithPlayers:2];
+    newGame.numberOfPlayers = 2;
 }
 
 
@@ -33,12 +40,15 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return newGame.numberOfPlayers;
 }
 
 - (IBAction)buttonHome:(id)sender {
     [self.navigationController popViewControllerAnimated:true];
 }
 
+- (IBAction)buttonStartGame:(id)sender {
+    
+}
 
 @end
