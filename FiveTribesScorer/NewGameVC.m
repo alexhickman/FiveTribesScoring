@@ -7,6 +7,7 @@
 //
 
 #import "NewGameVC.h"
+#import "NewPlayerTVCell.h"
 
 @implementation NewGameVC
 
@@ -19,12 +20,13 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"historyCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    NSString *cellIdentifier = @"playerCell";
+    NewPlayerTVCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[NewPlayerTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.textLabel.text = @"test";
+    
+    cell.labelPlayerCount.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
     
     return cell;
 }
@@ -35,6 +37,7 @@
 }
 
 - (IBAction)buttonHome:(id)sender {
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 

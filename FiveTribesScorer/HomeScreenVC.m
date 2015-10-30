@@ -7,12 +7,20 @@
 //
 
 #import "HomeScreenVC.h"
+#import "HistoryVC.h"
+#import "NewGameVC.h"
 
 @implementation HomeScreenVC
 
 - (IBAction)buttonNewGame:(id)sender {
 }
 - (IBAction)buttonHistory:(id)sender {
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NewGameVC *ngvc = [segue destinationViewController];
+    
 }
 
 @end

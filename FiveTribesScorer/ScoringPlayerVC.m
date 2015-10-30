@@ -18,8 +18,8 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSString *title = @"yup";
-    return title;
+    NSString *rowNumber = [NSString stringWithFormat:@"%ld", (long)row];
+    return rowNumber;
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
