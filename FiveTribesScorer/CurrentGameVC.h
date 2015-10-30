@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface CurrentGameVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewCurrentGame;
+@property (strong, nonatomic) Game *currentGame;
 
 @end

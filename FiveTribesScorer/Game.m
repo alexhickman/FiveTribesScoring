@@ -21,9 +21,9 @@
 {
     self = [super init];
     if (self) {
-        NSMutableArray *arrayOfPlayers = [[NSMutableArray alloc]init];
+        self.currentPlayers = [[NSMutableArray alloc]init];
         for (int i = 0; i < numberOfPlayers; i++) {
-            [arrayOfPlayers addObject:[Player newPlayer]];
+            [self.currentPlayers addObject:[Player newPlayer]];
         }
     }
     return self;

@@ -15,4 +15,6 @@
 +(Game *)newGame:(NSInteger)numberOfPlayers;
 - (instancetype)initWithPlayers:(NSInteger)numberOfPlayers;
 
+@property (strong, nonatomic) NSMutableArray *currentPlayers;
+
 @end

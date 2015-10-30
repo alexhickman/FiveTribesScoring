@@ -19,12 +19,13 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"historyCell";
+    NSString *cellIdentifier = @"playerCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.textLabel.text = @"test";
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
     
     return cell;
 }

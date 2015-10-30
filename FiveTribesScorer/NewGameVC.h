@@ -10,5 +10,14 @@
 
 @interface NewGameVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonPlayerOne;
+@property (weak, nonatomic) IBOutlet UIButton *buttonPlayerTwo;
+@property (weak, nonatomic) IBOutlet UIButton *buttonPlayerThree;
+@property (weak, nonatomic) IBOutlet UIButton *buttonPlayerFour;
+
+
+
+
+
 
 @end
