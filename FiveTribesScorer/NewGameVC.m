@@ -22,8 +22,15 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [self.buttonPlayerOne setTitle:[defaults objectForKey:@"playerOneButton"] forState:UIControlStateNormal];
+    [self.buttonPlayerTwo setTitle:[defaults objectForKey:@"playerTwoButton"] forState:UIControlStateNormal];
+    [self.buttonPlayerThree setTitle:[defaults objectForKey:@"playerThreeButton"] forState:UIControlStateNormal];
+    [self.buttonPlayerFour setTitle:[defaults objectForKey:@"playerFourButton"] forState:UIControlStateNormal];
+
     self.navigationItem.title = @"New Game";
-    [self.buttonPlayerFour setTitle:@"poop" forState:UIControlStateNormal];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -108,6 +115,7 @@
         {
             ((Player *)newGame.currentPlayers[i]).name = playerNames[i];
         }
+        [self saveTheThings];
         [self performSegueWithIdentifier:@"segueCurrentGameVC" sender:self];
     }
     else
@@ -129,6 +137,19 @@
         epvc.buttonName = nameToPass;
         epvc.delegateCustom = self;
     }
+}
+
+-(void)saveTheThings
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:self.buttonPlayerOne.currentTitle forKey:@"playerOneButton"];
+    NSLog(@"savingPlayerOne%@",self.buttonPlayerOne.currentTitle);
+    [defaults setObject:self.buttonPlayerTwo.currentTitle forKey:@"playerTwoButton"];
+    [defaults setObject:self.buttonPlayerThree.currentTitle forKey:@"playerThreeButton"];
+    [defaults setObject:self.buttonPlayerFour.currentTitle forKey:@"playerFourButton"];
+    
+    [defaults synchronize];
 }
 
 @end

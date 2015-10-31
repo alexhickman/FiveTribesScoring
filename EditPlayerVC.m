@@ -13,7 +13,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.textField.text = self.buttonName;
+    self.textField.placeholder = self.buttonName;
+
 }
 
 - (IBAction)buttonClear:(id)sender
