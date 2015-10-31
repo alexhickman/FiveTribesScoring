@@ -144,7 +144,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:self.buttonPlayerOne.currentTitle forKey:@"playerOneButton"];
-    NSLog(@"savingPlayerOne%@",self.buttonPlayerOne.currentTitle);
     [defaults setObject:self.buttonPlayerTwo.currentTitle forKey:@"playerTwoButton"];
     [defaults setObject:self.buttonPlayerThree.currentTitle forKey:@"playerThreeButton"];
     [defaults setObject:self.buttonPlayerFour.currentTitle forKey:@"playerFourButton"];
