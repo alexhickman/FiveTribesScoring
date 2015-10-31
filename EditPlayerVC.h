@@ -14,12 +14,13 @@
 
 @end
 
-@interface EditPlayerVC : UIViewController
+@interface EditPlayerVC : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property(strong, nonatomic) id <editPlayerDelegate> delegateCustom;
 
 @property (strong, nonatomic) NSString *currentPlayerInButton;
 @property (strong, nonatomic) NSString *buttonName;
+@property (weak, nonatomic) IBOutlet UILabel *labelError;
 
 @end

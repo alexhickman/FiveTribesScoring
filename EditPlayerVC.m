@@ -14,7 +14,8 @@
 {
     [super viewDidLoad];
     self.textField.placeholder = self.buttonName;
-
+    [self.textField becomeFirstResponder];
+    self.textField.delegate = self;
 }
 
 - (IBAction)buttonClear:(id)sender
@@ -23,10 +24,23 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 - (IBAction)buttonSubmit:(id)sender
 {
-    [self.delegateCustom nameChange:self.textField.text];
-    [self dismissViewControllerAnimated:true completion:nil];
+    if ([self.textField.text isEqualToString:@""]) {
+        [self.textField becomeFirstResponder];
+        self.labelError.text = @"Please enter valid player name";
+    }
+    else
+    {
+        [self.delegateCustom nameChange:self.textField.text];
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
 }
 
 

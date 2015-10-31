@@ -24,12 +24,12 @@
     [super viewDidLoad];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     [self.buttonPlayerOne setTitle:[defaults objectForKey:@"playerOneButton"] forState:UIControlStateNormal];
     [self.buttonPlayerTwo setTitle:[defaults objectForKey:@"playerTwoButton"] forState:UIControlStateNormal];
     [self.buttonPlayerThree setTitle:[defaults objectForKey:@"playerThreeButton"] forState:UIControlStateNormal];
     [self.buttonPlayerFour setTitle:[defaults objectForKey:@"playerFourButton"] forState:UIControlStateNormal];
-
+    
+    
     self.navigationItem.title = @"New Game";
 }
 
@@ -41,6 +41,7 @@
 
 - (IBAction)buttonHome:(id)sender
 {
+    [self saveTheThings];
     [self.navigationController popViewControllerAnimated:true];
 }
 
@@ -64,7 +65,7 @@
 {
     whichNameChanged = 1;
     nameToPass = self.buttonPlayerOne.currentTitle;
-    [self performSegueWithIdentifier:@"segueEditPlayerModal" sender:self];    
+    [self performSegueWithIdentifier:@"segueEditPlayerModal" sender:self];
 }
 
 - (IBAction)buttonPlayerTwo:(id)sender
@@ -121,7 +122,7 @@
     else
     {
         self.labelError.textColor = [UIColor redColor];
-        self.labelError.text = @"You do not have enough players";
+        self.labelError.text = @"Not have enough players";
     }
 }
 
@@ -131,7 +132,7 @@
         CurrentGameVC *cgvc = [segue destinationViewController];
         cgvc.currentGame = newGame;
     }
-   
+    
     if ([segue.identifier isEqualToString:@"segueEditPlayerModal"]) {
         EditPlayerVC *epvc = [segue destinationViewController];
         epvc.buttonName = nameToPass;

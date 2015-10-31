@@ -12,6 +12,11 @@
 
 @implementation HomeScreenVC
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.navigationItem.title = @"Five Tribes Score App";
+}
+
 - (IBAction)buttonNewGame:(id)sender {
     [self performSegueWithIdentifier:@"segueNewGame" sender:self];
 }

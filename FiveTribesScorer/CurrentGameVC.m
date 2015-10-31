@@ -7,7 +7,10 @@
 //
 
 #import "CurrentGameVC.h"
+#import "CurrentGameTVCell.h"
 #import "ScoringPlayerVC.h"
+#import "Player.h"
+
 
 @implementation CurrentGameVC
 
@@ -16,15 +19,16 @@
     [super viewDidLoad];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(CurrentGameTVCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellIdentifier = @"playerCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    CurrentGameTVCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[CurrentGameTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
+    cell.labelName.text = ((Player *)self.currentGame.currentPlayers[indexPath.row]).name;
+    cell.labelScore.text = [NSString stringWithFormat:@"%d", ((Player *)self.currentGame.currentPlayers[indexPath.row]).totalScore];
     
     return cell;
 }
