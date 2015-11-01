@@ -38,6 +38,8 @@
     return [self.currentGame.currentPlayers count];
 }
 
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"segueScoring" sender:self];

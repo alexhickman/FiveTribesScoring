@@ -22,6 +22,7 @@
 		8821D0AD1BE2EA05009C0E17 /* HomeScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */; };
 		8821D0B01BE2EBD7009C0E17 /* HistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */; };
 		886CE1FD1BE4824000BCA725 /* CurrentGameTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */; };
+		886CE2031BE5B86400BCA725 /* ManualInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CE2021BE5B86400BCA725 /* ManualInputVC.m */; };
 		889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889FD8A71BE3FC08001F2EC8 /* Main.storyboard */; };
 		889FD8AF1BE41BAD001F2EC8 /* EditPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889FD8AE1BE41BAD001F2EC8 /* EditPlayerVC.m */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,8 @@
 		8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryVC.m; sourceTree = "<group>"; };
 		886CE1FB1BE4824000BCA725 /* CurrentGameTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentGameTVCell.h; sourceTree = "<group>"; };
 		886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentGameTVCell.m; sourceTree = "<group>"; };
+		886CE2011BE5B86400BCA725 /* ManualInputVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualInputVC.h; sourceTree = "<group>"; };
+		886CE2021BE5B86400BCA725 /* ManualInputVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualInputVC.m; sourceTree = "<group>"; };
 		889FD8A81BE3FC08001F2EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		889FD8AD1BE41BAD001F2EC8 /* EditPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPlayerVC.h; path = ../EditPlayerVC.h; sourceTree = "<group>"; };
 		889FD8AE1BE41BAD001F2EC8 /* EditPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPlayerVC.m; path = ../EditPlayerVC.m; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 				8821D0A21BE2E476009C0E17 /* CurrentGameVC.m */,
 				8821D0A51BE2E530009C0E17 /* ScoringPlayerVC.h */,
 				8821D0A61BE2E530009C0E17 /* ScoringPlayerVC.m */,
+				886CE2011BE5B86400BCA725 /* ManualInputVC.h */,
+				886CE2021BE5B86400BCA725 /* ManualInputVC.m */,
 				8821D0A81BE2E7A0009C0E17 /* MerchandiseVC.h */,
 				8821D0A91BE2E7A0009C0E17 /* MerchandiseVC.m */,
 			);
@@ -327,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8821D0AA1BE2E7A0009C0E17 /* MerchandiseVC.m in Sources */,
+				886CE2031BE5B86400BCA725 /* ManualInputVC.m in Sources */,
 				886CE1FD1BE4824000BCA725 /* CurrentGameTVCell.m in Sources */,
 				8821D0B01BE2EBD7009C0E17 /* HistoryVC.m in Sources */,
 				8821D0701BE2E3AB009C0E17 /* AppDelegate.m in Sources */,
