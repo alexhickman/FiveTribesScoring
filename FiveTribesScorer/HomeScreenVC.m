@@ -15,6 +15,8 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     self.navigationItem.title = @"Five Tribes Score App";
+    self.view.backgroundColor = [UIColor brownColor];
+    
 }
 
 - (IBAction)buttonNewGame:(id)sender {

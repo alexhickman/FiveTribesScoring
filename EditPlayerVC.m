@@ -13,6 +13,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor brownColor];
     self.textField.placeholder = self.buttonName;
     [self.textField becomeFirstResponder];
     self.textField.delegate = self;

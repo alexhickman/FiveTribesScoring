@@ -17,6 +17,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor brownColor];
+
 }
 
 -(CurrentGameTVCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

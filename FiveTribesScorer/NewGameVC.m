@@ -22,20 +22,19 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor brownColor];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [self.buttonPlayerOne setTitle:[defaults objectForKey:@"playerOneButton"] forState:UIControlStateNormal];
     [self.buttonPlayerTwo setTitle:[defaults objectForKey:@"playerTwoButton"] forState:UIControlStateNormal];
     [self.buttonPlayerThree setTitle:[defaults objectForKey:@"playerThreeButton"] forState:UIControlStateNormal];
     [self.buttonPlayerFour setTitle:[defaults objectForKey:@"playerFourButton"] forState:UIControlStateNormal];
     
-    
     self.navigationItem.title = @"New Game";
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.labelError.textColor = [UIColor blackColor];
+    self.labelError.textColor = [UIColor yellowColor];
     self.labelError.text = @"Select 2-4 Players";
 }
 
@@ -121,7 +120,7 @@
     }
     else
     {
-        self.labelError.textColor = [UIColor redColor];
+        self.labelError.textColor = [UIColor yellowColor];
         self.labelError.text = @"Not have enough players";
     }
 }
