@@ -12,7 +12,7 @@
 
 +(Player *)newPlayer
 {
-    Player *newPlayer = [[Player alloc]init];
+    Player *newPlayer = [[Player alloc]initWithTheThings];
     return newPlayer;
 }
 
