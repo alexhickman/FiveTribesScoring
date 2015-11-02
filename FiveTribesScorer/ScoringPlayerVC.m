@@ -14,7 +14,16 @@
     NSArray *pickerData;
     NSInteger numberOfRows;
     NSInteger currentComponent;
+    
+    NSInteger gold;
+    NSInteger yellowVizier;
+    NSInteger whiteElder;
+    NSInteger palmTrees;
+    NSInteger palaces;
+    NSInteger tiles;
+
 }
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -25,38 +34,19 @@
                   nil];
     numberOfRows = 3*[pickerData count];
     
-    int gold = self.currentPlayer.gold;
-    int yellowvizier = self.currentPlayer.yellowVizier;
-    int whiteElder = self.currentPlayer.whiteElder;
-    int palmTree = self.currentPlayer.palmTrees;
-    int palace = self.currentPlayer.palace;
-    int tile = self.currentPlayer.tiles;
+    gold = self.currentPlayer.gold;
+    yellowVizier = self.currentPlayer.yellowVizier;
+    whiteElder = self.currentPlayer.whiteElder;
+    palmTrees = self.currentPlayer.palmTrees;
+    palaces = self.currentPlayer.palace;
+    tiles = self.currentPlayer.tiles;
     
-    for (int i=0; i<6; i++) {
-        if (i==0) {
-            [self.pickerViewScores selectRow:1+gold inComponent:i animated:NO];
-        }
-        else if (i == 1)
-        {
-            [self.pickerViewScores selectRow:1+yellowvizier inComponent:i animated:NO];
-        }
-        else if (i == 2)
-        {
-            [self.pickerViewScores selectRow:1+whiteElder inComponent:i animated:NO];
-        }
-        else if (i == 3)
-        {
-            [self.pickerViewScores selectRow:1+palmTree inComponent:i animated:NO];
-        }
-        else if (i == 4)
-        {
-            [self.pickerViewScores selectRow:1+palace inComponent:i animated:NO];
-        }
-        else if (i == 5)
-        {
-            [self.pickerViewScores selectRow:1+tile inComponent:i animated:NO];
-        }
-    }
+    [self.pickerViewScores selectRow:1 + gold + [pickerData count] inComponent:0 animated:NO];
+    [self.pickerViewScores selectRow:1 + yellowVizier + [pickerData count] inComponent:1 animated:NO];
+    [self.pickerViewScores selectRow:1 + whiteElder + [pickerData count] inComponent:2 animated:NO];
+    [self.pickerViewScores selectRow:1 + palmTrees + [pickerData count] inComponent:3 animated:NO];
+    [self.pickerViewScores selectRow:1 + palaces + [pickerData count] inComponent:4 animated:NO];
+    [self.pickerViewScores selectRow:1 + tiles + [pickerData count] inComponent:5 animated:NO];
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
@@ -105,6 +95,31 @@
         currentComponent = component;
         [self performSegueWithIdentifier:@"segueManualInput" sender:self];
     }
+    if (component==0)
+    {
+        gold = row % [pickerData count] - 1;
+    }
+    else if (component == 1)
+    {
+        yellowVizier = row % [pickerData count] - 1;
+    }
+    else if (component == 2)
+    {
+        whiteElder = row % [pickerData count] - 1;
+    }
+    else if (component == 3)
+    {
+        palmTrees = row % [pickerData count] - 1;
+    }
+    else if (component == 4)
+    {
+        palaces = row % [pickerData count] - 1;
+    }
+    else if (component == 5)
+    {
+        tiles = row % [pickerData count] - 1;
+    }
+    
     //we want the selection to always be in the SECOND set (so that it looks like it has stuff before and after)
     if (row < [pickerData count] || row >= (2 * [pickerData count]) ) {
         row = row % [pickerData count];
@@ -115,10 +130,43 @@
 
 -(void)valueChosen:(NSInteger)newRow currentComponent:(NSInteger)component
 {
+    if (component==0)
+    {
+        gold = newRow;
+    }
+    else if (component == 1)
+    {
+        yellowVizier = newRow;
+    }
+    else if (component == 2)
+    {
+        whiteElder = newRow;
+    }
+    else if (component == 3)
+    {
+        palmTrees = newRow;
+    }
+    else if (component == 4)
+    {
+        palaces = newRow;
+    }
+    else if (component == 5)
+    {
+        tiles = newRow;
+    }
     [self.pickerViewScores selectRow:newRow + 1 inComponent:component animated:NO];
 }
 
 - (IBAction)buttonSave:(id)sender {
+    self.currentPlayer.gold = gold;
+    self.currentPlayer.yellowVizier = yellowVizier;
+    self.currentPlayer.whiteElder = whiteElder;
+    self.currentPlayer.palmTrees = palmTrees;
+    self.currentPlayer.palace = palaces;
+    self.currentPlayer.tiles = tiles;
+    self.currentPlayer.totalScore = gold + yellowVizier + whiteElder + palmTrees + palaces + tiles;
+    [self.navigationController popViewControllerAnimated:true];
+    [self.delegateCustom passingScoresBack:self.currentPlayer atIndex:self.playerIndex];
 }
 
 - (IBAction)buttonCancel:(id)sender {

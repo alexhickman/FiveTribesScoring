@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Game.h"
+#import "ScoringPlayerVC.h"
 
-@interface CurrentGameVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CurrentGameVC : UIViewController <UITableViewDelegate, UITableViewDataSource, savingCurrentScoresDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewCurrentGame;
 @property (strong, nonatomic) Game *currentGame;

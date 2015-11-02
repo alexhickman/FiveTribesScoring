@@ -15,6 +15,7 @@
 @implementation CurrentGameVC
 {
     Player *selectedPlayer;
+    NSInteger playerIndex;
 }
 
 -(void)viewDidLoad
@@ -36,7 +37,7 @@
     cell.labelScore.backgroundColor = [UIColor brownColor];
     cell.backgroundColor = [UIColor brownColor];
     cell.labelName.text = ((Player *)self.currentGame.currentPlayers[indexPath.row]).name;
-    cell.labelScore.text = [NSString stringWithFormat:@"%d", ((Player *)self.currentGame.currentPlayers[indexPath.row]).totalScore];
+    cell.labelScore.text = [NSString stringWithFormat:@"%ld", (long)((Player *)self.currentGame.currentPlayers[indexPath.row]).totalScore];
     
     return cell;
 }
@@ -61,13 +62,23 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     selectedPlayer = self.currentGame.currentPlayers[indexPath.row];
+    playerIndex = indexPath.row;
     [self performSegueWithIdentifier:@"segueScoring" sender:self];
+}
+
+-(void)passingScoresBack:(Player *)scoredPlayer atIndex:(NSInteger)index
+{
+    self.currentGame.currentPlayers[index] = scoredPlayer;
+    [self.tableViewCurrentGame reloadData];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     ScoringPlayerVC *scoringPVC = [segue destinationViewController];
     scoringPVC.currentPlayer = selectedPlayer;
+    scoringPVC.playerIndex = playerIndex;
+    scoringPVC.delegateCustom = self;
+    
 }
 
 @end

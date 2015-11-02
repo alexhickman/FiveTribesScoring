@@ -13,15 +13,15 @@
 @property (strong, nonatomic) NSString *name;
 
 @property (strong, nonatomic) NSMutableArray *merchandise;
-@property (nonatomic) int gold;
-@property (nonatomic) int yellowVizier;
-@property (nonatomic) int whiteElder;
-@property (nonatomic) int palmTrees;
-@property (nonatomic) int palace;
-@property (nonatomic) int tiles;
-@property (nonatomic) int merchaniseScore;
-@property (nonatomic) int djinnCardScore;
-@property (nonatomic) int totalScore;
+@property (nonatomic) NSInteger gold;
+@property (nonatomic) NSInteger yellowVizier;
+@property (nonatomic) NSInteger whiteElder;
+@property (nonatomic) NSInteger palmTrees;
+@property (nonatomic) NSInteger palace;
+@property (nonatomic) NSInteger tiles;
+@property (nonatomic) NSInteger merchaniseScore;
+@property (nonatomic) NSInteger djinnCardScore;
+@property (nonatomic) NSInteger totalScore;
 
 +(Player *)newPlayer;
 
