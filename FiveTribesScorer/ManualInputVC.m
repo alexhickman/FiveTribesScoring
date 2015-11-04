@@ -19,19 +19,37 @@
 - (IBAction)buttonSubmit:(id)sender
 {
     NSInteger valueEntered = (self.textField.text).integerValue;
-    if (valueEntered < 60) {
-        [self.delegateCustom valueChosen:valueEntered currentComponent:self.component];
-        [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.component == 0 || self.component == 5)
+    {
+        if (valueEntered <= 100)
+        {
+            [self.delegateCustom valueChosen:valueEntered currentComponent:self.component];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            self.labelError.text = @"Not Valid Amount";
+            self.textField.text = @"";
+        }
     }
     else
     {
-        self.labelError.text = @"Not Valid Amount";
-        self.textField.text = @"";
+        if (valueEntered <= 10)
+        {
+            [self.delegateCustom valueChosen:valueEntered currentComponent:self.component];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            self.labelError.text = @"Not Valid Amount";
+            self.textField.text = @"";
+        }
     }
 }
 
 - (IBAction)buttonCancel:(id)sender
 {
+    [self.delegateCustom valueChosen:0 currentComponent:self.component];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

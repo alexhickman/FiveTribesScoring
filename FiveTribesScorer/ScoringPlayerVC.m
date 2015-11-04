@@ -8,12 +8,15 @@
 
 #import "ScoringPlayerVC.h"
 #import "ManualInputVC.h"
+#import "MerchandiseVC.h"
 
 @implementation ScoringPlayerVC
 {
-    NSArray *pickerData;
-    NSInteger numberOfRows;
+    NSMutableArray *pickerDataHundred;
+    NSMutableArray *pickerDataTen;
     NSInteger currentComponent;
+    NSInteger numberOfRowsHundred;
+    NSInteger numberOfRowsTen;
     
     NSInteger gold;
     NSInteger yellowVizier;
@@ -21,19 +24,28 @@
     NSInteger palmTrees;
     NSInteger palaces;
     NSInteger tiles;
-
+    
 }
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor brownColor];
-    UIImageView *keypad = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"keypad"]];
-    pickerData = [[NSArray alloc]init];
-    pickerData = [NSArray arrayWithObjects:keypad, @"0",@"1", @"2", @"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",
-                  nil];
-    numberOfRows = 3*[pickerData count];
     
+    UIImageView *keypad = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"keypad"]];
+    
+    pickerDataHundred = [[NSMutableArray alloc]init];
+    pickerDataHundred = [self makeArrayOfStringsTo:100];
+    [pickerDataHundred addObject:keypad];
+    
+    pickerDataTen = [[NSMutableArray alloc]init];
+    pickerDataTen = [self makeArrayOfStringsTo:10];
+    [pickerDataTen addObject:keypad];
+    
+    numberOfRowsHundred = 3*[pickerDataHundred count];
+    numberOfRowsTen = 3*[pickerDataTen count];
+    
+    //    [pickerData addObjectsFromArray:arrayNumbersToOneHundred];
     gold = self.currentPlayer.gold;
     yellowVizier = self.currentPlayer.yellowVizier;
     whiteElder = self.currentPlayer.whiteElder;
@@ -41,47 +53,97 @@
     palaces = self.currentPlayer.palace;
     tiles = self.currentPlayer.tiles;
     
-    [self.pickerViewScores selectRow:1 + gold + [pickerData count] inComponent:0 animated:NO];
-    [self.pickerViewScores selectRow:1 + yellowVizier + [pickerData count] inComponent:1 animated:NO];
-    [self.pickerViewScores selectRow:1 + whiteElder + [pickerData count] inComponent:2 animated:NO];
-    [self.pickerViewScores selectRow:1 + palmTrees + [pickerData count] inComponent:3 animated:NO];
-    [self.pickerViewScores selectRow:1 + palaces + [pickerData count] inComponent:4 animated:NO];
-    [self.pickerViewScores selectRow:1 + tiles + [pickerData count] inComponent:5 animated:NO];
+    [self.pickerViewScores selectRow:gold + [pickerDataHundred count] inComponent:0 animated:NO];
+    [self.pickerViewScores selectRow:yellowVizier + [pickerDataTen count] inComponent:1 animated:NO];
+    [self.pickerViewScores selectRow:whiteElder + [pickerDataTen count] inComponent:2 animated:NO];
+    [self.pickerViewScores selectRow:palmTrees + [pickerDataTen count] inComponent:3 animated:NO];
+    [self.pickerViewScores selectRow:palaces + [pickerDataTen count] inComponent:4 animated:NO];
+    [self.pickerViewScores selectRow:tiles + [pickerDataHundred count] inComponent:5 animated:NO];
+}
+
+-(NSMutableArray *)makeArrayOfStringsTo:(int)number
+{
+    NSMutableArray *arrayOfNumbers = [[NSMutableArray alloc]init];
+    for (int i=0; i <= number; i++)
+    {
+        NSString *aValue = [NSString stringWithFormat:@"%d", i];
+        [arrayOfNumbers addObject:aValue];
+    }
+    return arrayOfNumbers;
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
     UIView *pickerCustomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
     
-    if ((row % [pickerData count])==0) {
-        UIView * myView = (UIImageView *)pickerData[(row % [pickerData count])];
-        [myView setFrame:CGRectMake(0, 0, 30, 30)];
-        
-        // first convert to a UIImage
-        UIGraphicsBeginImageContextWithOptions(myView.bounds.size, NO, 0);
-        [myView.layer renderInContext:UIGraphicsGetCurrentContext()];
-        UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        // then convert back to a UIImageView and return it
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        [pickerCustomView addSubview:imageView];
+    if (component == 0 || component == 5)
+    {
+        if ((row % [pickerDataHundred count]) == ([pickerDataHundred count]-1)) {
+            UIView * myView = (UIImageView *)pickerDataHundred[(row % [pickerDataHundred count])];
+            [myView setFrame:CGRectMake(0, 0, 30, 30)];
+            
+            // first convert to a UIImage
+            UIGraphicsBeginImageContextWithOptions(myView.bounds.size, NO, 0);
+            [myView.layer renderInContext:UIGraphicsGetCurrentContext()];
+            UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            // then convert back to a UIImageView and return it
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+            [pickerCustomView addSubview:imageView];
+        }
+        else
+        {
+            UILabel *mytext = [[UILabel alloc] init];
+            mytext.textColor = [UIColor yellowColor];
+            
+            mytext.text = pickerDataHundred[(row % [pickerDataHundred count])];
+            [mytext setFrame:CGRectMake(0,0,30,30)];
+            mytext.textAlignment = 1;
+            [pickerCustomView addSubview:mytext];
+        }
+        return pickerCustomView;
     }
     else
     {
-        UILabel *mytext = [[UILabel alloc] init];
-        mytext.textColor = [UIColor yellowColor];
+        if ((row % [pickerDataTen count]) == ([pickerDataTen count]-1)) {
+            UIView * myView = (UIImageView *)pickerDataTen[(row % [pickerDataTen count])];
+            [myView setFrame:CGRectMake(0, 0, 30, 30)];
+            
+            // first convert to a UIImage
+            UIGraphicsBeginImageContextWithOptions(myView.bounds.size, NO, 0);
+            [myView.layer renderInContext:UIGraphicsGetCurrentContext()];
+            UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            // then convert back to a UIImageView and return it
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+            [pickerCustomView addSubview:imageView];
+        }
+        else
+        {
+            UILabel *mytext = [[UILabel alloc] init];
+            mytext.textColor = [UIColor yellowColor];
+            
+            mytext.text = pickerDataTen[(row % [pickerDataTen count])];
+            [mytext setFrame:CGRectMake(0,0,30,30)];
+            mytext.textAlignment = 1;
+            [pickerCustomView addSubview:mytext];
+        }
+        return pickerCustomView;
         
-        mytext.text = pickerData[(row % [pickerData count])];
-        [mytext setFrame:CGRectMake(0,0,30,30)];
-        mytext.textAlignment = 1;
-        [pickerCustomView addSubview:mytext];
     }
-    return pickerCustomView;
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return numberOfRows;
+    if (component == 0 || component == 5)
+    {
+        return numberOfRowsHundred;
+    }
+    else
+    {
+        return numberOfRowsTen;
+    }
+    
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -91,43 +153,87 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if ((row % [pickerData count]) == 0) {
-        currentComponent = component;
-        [self performSegueWithIdentifier:@"segueManualInput" sender:self];
-    }
-    if (component==0)
+    if (component == 0 || component == 5)
     {
-        gold = row % [pickerData count] - 1;
+        if ((row % [pickerDataHundred count]) == ([pickerDataHundred count] - 1)) {
+            currentComponent = component;
+            [self performSegueWithIdentifier:@"segueManualInput" sender:self];
+        }
+        if (component==0)
+        {
+            gold = row % [pickerDataHundred count];
+        }
+        else if (component == 1)
+        {
+            yellowVizier = row % [pickerDataTen count];
+        }
+        else if (component == 2)
+        {
+            whiteElder = row % [pickerDataTen count];
+        }
+        else if (component == 3)
+        {
+            palmTrees = row % [pickerDataTen count];
+        }
+        else if (component == 4)
+        {
+            palaces = row % [pickerDataTen count];
+        }
+        else if (component == 5)
+        {
+            tiles = row % [pickerDataHundred count];
+        }
+        
+        //we want the selection to always be in the SECOND set (so that it looks like it has stuff before and after)
+        if (row < [pickerDataHundred count] || row >= (2 * [pickerDataHundred count]) )
+        {
+            row = row % [pickerDataHundred count];
+            row += [pickerDataHundred count];
+            [pickerView selectRow:row inComponent:component animated:NO];
+        }
     }
-    else if (component == 1)
+    else
     {
-        yellowVizier = row % [pickerData count] - 1;
-    }
-    else if (component == 2)
-    {
-        whiteElder = row % [pickerData count] - 1;
-    }
-    else if (component == 3)
-    {
-        palmTrees = row % [pickerData count] - 1;
-    }
-    else if (component == 4)
-    {
-        palaces = row % [pickerData count] - 1;
-    }
-    else if (component == 5)
-    {
-        tiles = row % [pickerData count] - 1;
-    }
-    
-    //we want the selection to always be in the SECOND set (so that it looks like it has stuff before and after)
-    if (row < [pickerData count] || row >= (2 * [pickerData count]) ) {
-        row = row % [pickerData count];
-        row += [pickerData count];
-        [pickerView selectRow:row inComponent:component animated:NO];
+        if ((row % [pickerDataTen count]) == ([pickerDataTen count] - 1)) {
+            currentComponent = component;
+            [self performSegueWithIdentifier:@"segueManualInput" sender:self];
+        }
+        if (component == 0)
+        {
+            gold = row % [pickerDataHundred count];
+        }
+        else if (component == 1)
+        {
+            yellowVizier = row % [pickerDataTen count];
+        }
+        else if (component == 2)
+        {
+            whiteElder = row % [pickerDataTen count];
+        }
+        else if (component == 3)
+        {
+            palmTrees = row % [pickerDataTen count];
+        }
+        else if (component == 4)
+        {
+            palaces = row % [pickerDataTen count];
+        }
+        else if (component == 5)
+        {
+            tiles = row % [pickerDataHundred count];
+        }
+        
+        //we want the selection to always be in the SECOND set (so that it looks like it has stuff before and after)
+        if (row < [pickerDataTen count] || row >= (2 * [pickerDataTen count]) )
+        {
+            row = row % [pickerDataTen count];
+            row += [pickerDataTen count];
+            [pickerView selectRow:row inComponent:component animated:NO];
+        }
     }
 }
 
+//delegate method
 -(void)valueChosen:(NSInteger)newRow currentComponent:(NSInteger)component
 {
     if (component==0)
@@ -154,7 +260,14 @@
     {
         tiles = newRow;
     }
-    [self.pickerViewScores selectRow:newRow + 1 inComponent:component animated:NO];
+    if (component == 0 || component == 5)
+    {
+        [self.pickerViewScores selectRow:newRow + [pickerDataHundred count] inComponent:component animated:NO];
+    }
+    else
+    {
+        [self.pickerViewScores selectRow:newRow + [pickerDataTen count] inComponent:component animated:NO];
+    }
 }
 
 - (IBAction)buttonSave:(id)sender {
@@ -169,18 +282,28 @@
     [self.delegateCustom passingScoresBack:self.currentPlayer atIndex:self.playerIndex];
 }
 
-- (IBAction)buttonCancel:(id)sender {
+- (IBAction)buttonCancel:(id)sender
+{
     [self.navigationController popViewControllerAnimated:true];
 }
 
-- (IBAction)buttonMerchandise:(id)sender {
+- (IBAction)buttonMerchandise:(id)sender
+{
+    [self performSegueWithIdentifier:@"segueMerch" sender:self];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ManualInputVC *mivc = [segue destinationViewController];
-    mivc.delegateCustom = self;
-    mivc.component = currentComponent;
+    if ([segue.identifier isEqualToString:@"segueManualInput"]) {
+        ManualInputVC *mivc = [segue destinationViewController];
+        mivc.delegateCustom = self;
+        mivc.component = currentComponent;
+    }
+    if ([segue.identifier isEqualToString:@"segueMerch"])
+    {
+        MerchandiseVC *mvc = [segue destinationViewController];
+    }
+    
 }
 
 @end
