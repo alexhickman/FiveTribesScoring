@@ -15,8 +15,6 @@
     NSMutableArray *pickerDataHundred;
     NSMutableArray *pickerDataTen;
     NSInteger currentComponent;
-    NSInteger numberOfRowsHundred;
-    NSInteger numberOfRowsTen;
     
     NSInteger gold;
     NSInteger yellowVizier;
@@ -24,7 +22,6 @@
     NSInteger palmTrees;
     NSInteger palaces;
     NSInteger tiles;
-    
 }
 
 -(void)viewDidLoad
@@ -34,6 +31,8 @@
     
     UIImageView *keypad = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"keypad"]];
     
+    self.pickerViewScores.frame = CGRectMake(0, 50, self.view.frame.size.width, 400);
+    
     pickerDataHundred = [[NSMutableArray alloc]init];
     pickerDataHundred = [self makeArrayOfStringsTo:100];
     [pickerDataHundred addObject:keypad];
@@ -41,11 +40,7 @@
     pickerDataTen = [[NSMutableArray alloc]init];
     pickerDataTen = [self makeArrayOfStringsTo:10];
     [pickerDataTen addObject:keypad];
-    
-    numberOfRowsHundred = 3*[pickerDataHundred count];
-    numberOfRowsTen = 3*[pickerDataTen count];
-    
-    //    [pickerData addObjectsFromArray:arrayNumbersToOneHundred];
+
     gold = self.currentPlayer.gold;
     yellowVizier = self.currentPlayer.yellowVizier;
     whiteElder = self.currentPlayer.whiteElder;
@@ -79,9 +74,8 @@
     if (component == 0 || component == 5)
     {
         if ((row % [pickerDataHundred count]) == ([pickerDataHundred count]-1)) {
-            UIView * myView = (UIImageView *)pickerDataHundred[(row % [pickerDataHundred count])];
+            UIView *myView = (UIImageView *)pickerDataHundred[(row % [pickerDataHundred count])];
             [myView setFrame:CGRectMake(0, 0, 30, 30)];
-            
             // first convert to a UIImage
             UIGraphicsBeginImageContextWithOptions(myView.bounds.size, NO, 0);
             [myView.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -129,7 +123,6 @@
             [pickerCustomView addSubview:mytext];
         }
         return pickerCustomView;
-        
     }
 }
 
@@ -137,13 +130,12 @@
 {
     if (component == 0 || component == 5)
     {
-        return numberOfRowsHundred;
+        return 3*[pickerDataHundred count];
     }
     else
     {
-        return numberOfRowsTen;
+        return 3*[pickerDataTen count];
     }
-    
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

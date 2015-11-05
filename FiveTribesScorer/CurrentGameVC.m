@@ -24,6 +24,7 @@
     self.view.backgroundColor = [UIColor brownColor];
     self.labelScoreTitle.backgroundColor = [UIColor brownColor];
     selectedPlayer = [Player newPlayer];
+    self.tableViewCurrentGame.frame = CGRectMake(0, 100, self.view.frame.size.width, 300);
 }
 
 -(CurrentGameTVCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,6 +71,13 @@
 {
     self.currentGame.currentPlayers[index] = scoredPlayer;
     [self.tableViewCurrentGame reloadData];
+}
+
+- (IBAction)buttonSaveGame:(id)sender
+{
+    Game *gameToSave = [[Game alloc]init];
+    gameToSave = self.currentGame;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"saveGame" object:gameToSave];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

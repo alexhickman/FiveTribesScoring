@@ -29,5 +29,35 @@
     return self;
 }
 
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:self.numberOfPlayers forKey:@"numberOfPlayers"];
+    [aCoder encodeObject:self.completedDate forKey:@"completedDate"];
+    
+    NSMutableArray *archiveArray = [NSMutableArray arrayWithCapacity:[self.currentPlayers count]];
+    for (Player *playerObject in self.currentPlayers) {
+        NSData *playerEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:playerObject];
+        [archiveArray addObject:playerEncodedObject];
+    }
+    [aCoder encodeObject:archiveArray forKey:@"currentPlayer"];
+}
+
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    self.numberOfPlayers = [aDecoder decodeIntegerForKey:@"numberOfPlayers"];
+    self.completedDate = [aDecoder decodeObjectForKey:@"completedDate"];
+
+    NSMutableArray *dataArray = [aDecoder decodeObjectForKey:@"currentPlayers"];
+    NSMutableArray *unarchivedArray = [NSMutableArray arrayWithCapacity:[dataArray count]];
+    for (NSData *dataObject in dataArray)
+    {
+        Player *playerObject = [NSKeyedUnarchiver unarchiveObjectWithData:dataObject];
+        [unarchivedArray addObject:playerObject];
+    }
+    self.currentPlayers = unarchivedArray;
+
+    return self;
+}
 
 @end

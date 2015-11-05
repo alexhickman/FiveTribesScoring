@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Game : NSObject
+@interface Game : NSObject <NSCoding>
 
 @property (nonatomic) NSInteger numberOfPlayers;
+@property (strong, nonatomic) NSMutableArray *currentPlayers;
+@property (strong, nonatomic) NSDate *completedDate;
+
 
 +(Game *)newGame:(NSInteger)numberOfPlayers;
 - (instancetype)initWithPlayers:(NSInteger)numberOfPlayers;
 
-@property (strong, nonatomic) NSMutableArray *currentPlayers;
+
 
 @end

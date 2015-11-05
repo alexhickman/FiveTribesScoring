@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeScreenVC : UIViewController
+@interface HomeScreenVC : UIViewController <NSCoding>
+
+@property (strong, nonatomic) NSMutableArray *gameHistory;
 
 @end

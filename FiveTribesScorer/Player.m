@@ -34,7 +34,41 @@
     return self;
 }
 
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeInteger:self.gold forKey:@"gold"];
+    [aCoder encodeInteger:self.yellowVizier forKey:@"yellowVizier"];
+    [aCoder encodeInteger:self.whiteElder forKey:@"whiteElder"];
+    [aCoder encodeInteger:self.palmTrees forKey:@"palmTrees"];
+    [aCoder encodeInteger:self.palace forKey:@"palace"];
+    [aCoder encodeInteger:self.tiles forKey:@"tiles"];
+    [aCoder encodeInteger:self.merchaniseScore forKey:@"merchaniseScore"];
+    [aCoder encodeInteger:self.djinnCardScore forKey:@"djinnCardScore"];
+    [aCoder encodeInteger:self.totalScore forKey:@"totalScore"];
+    [aCoder encodeObject:self.merchandise forKey:@"merchandise"];
+}
 
-
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    self.name = [aDecoder decodeObjectForKey:@"name"];
+    self.merchandise = [aDecoder decodeObjectForKey:@"merchandise"];
+    self.gold = [aDecoder decodeIntegerForKey:@"gold"];
+    self.yellowVizier = [aDecoder decodeIntegerForKey:@"yellowVizier"];
+    self.whiteElder = [aDecoder decodeIntegerForKey:@"whiteElder"];
+    self.palmTrees = [aDecoder decodeIntegerForKey:@"palmTrees"];
+    self.palace = [aDecoder decodeIntegerForKey:@"palace"];
+    self.tiles = [aDecoder decodeIntegerForKey:@"tiles"];
+    self.merchaniseScore = [aDecoder decodeIntegerForKey:@"merchaniseScore"];
+    self.djinnCardScore = [aDecoder decodeIntegerForKey:@"djinnCardScore"];
+    self.totalScore = [aDecoder decodeIntegerForKey:@"totalScore"];
+    
+    
+//    NSArray *merch = [aDecoder decodeObjectForKey:@"currentPlayers"];
+//    self.merchandise = [[NSMutableArray alloc] initWithArray:merch copyItems:YES];
+    
+    return self;
+}
 
 @end

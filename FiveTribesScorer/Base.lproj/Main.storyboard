@@ -346,9 +346,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqp-1Q-ZRJ">
+                                <rect key="frame" x="97" y="404" width="127" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Save Game">
+                                    <color key="titleColor" red="0.96902360430000001" green="1" blue="0.31859522649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonSaveGame:" destination="22Y-J5-bGS" eventType="touchUpInside" id="wnW-sa-wIU"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S0l-lB-Uvk">
-                                <rect key="frame" x="40" y="104" width="240" height="359"/>
+                                <rect key="frame" x="40" y="104" width="240" height="304"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="304" id="Bd7-eQ-vyb"/>
+                                </constraints>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jX5-56-Rib">
                                     <rect key="frame" x="0.0" y="64" width="240" height="44"/>
@@ -376,9 +389,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cro-pZ-RAx">
-                                                    <rect key="frame" x="130" y="10" width="30" height="30"/>
+                                                    <rect key="frame" x="130" y="10" width="50" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="GnD-Me-mne"/>
+                                                        <constraint firstAttribute="width" constant="50" id="GnD-Me-mne"/>
                                                         <constraint firstAttribute="height" constant="30" id="Zbc-Xk-oh0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -408,10 +421,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="S0l-lB-Uvk" firstAttribute="centerX" secondItem="LIw-8L-06R" secondAttribute="centerX" id="5fx-sh-rxE"/>
+                            <constraint firstItem="Pqp-1Q-ZRJ" firstAttribute="top" secondItem="S0l-lB-Uvk" secondAttribute="bottom" constant="-4" id="RNW-YJ-JrR"/>
                             <constraint firstAttribute="trailing" secondItem="S0l-lB-Uvk" secondAttribute="trailing" constant="40" id="fsh-wV-T2y"/>
                             <constraint firstItem="S0l-lB-Uvk" firstAttribute="leading" secondItem="LIw-8L-06R" secondAttribute="leading" constant="40" id="jCU-5Q-BtJ"/>
                             <constraint firstItem="S0l-lB-Uvk" firstAttribute="top" secondItem="HWW-Ko-R1p" secondAttribute="bottom" constant="40" id="kKv-2i-5Xh"/>
-                            <constraint firstItem="S0l-lB-Uvk" firstAttribute="centerY" secondItem="LIw-8L-06R" secondAttribute="centerY" id="ru2-lW-oNv"/>
+                            <constraint firstItem="S0l-lB-Uvk" firstAttribute="centerX" secondItem="Pqp-1Q-ZRJ" secondAttribute="centerX" id="oBp-Ab-CZY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jnl-Wa-mf9"/>

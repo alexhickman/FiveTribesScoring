@@ -13,7 +13,7 @@
 @interface CurrentGameVC : UIViewController <UITableViewDelegate, UITableViewDataSource, savingCurrentScoresDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewCurrentGame;
-@property (strong, nonatomic) Game *currentGame;
 @property (weak, nonatomic) IBOutlet UILabel *labelScoreTitle;
+@property (strong, nonatomic) Game *currentGame;
 
 @end

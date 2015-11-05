@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Player : NSObject
+@interface Player : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSString *name;
 
