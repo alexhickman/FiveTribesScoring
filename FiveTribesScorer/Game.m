@@ -34,12 +34,12 @@
     [aCoder encodeInteger:self.numberOfPlayers forKey:@"numberOfPlayers"];
     [aCoder encodeObject:self.completedDate forKey:@"completedDate"];
     
-    NSMutableArray *archiveArray = [NSMutableArray arrayWithCapacity:[self.currentPlayers count]];
+    NSMutableArray *archiveArray = [[NSMutableArray alloc]init];
     for (Player *playerObject in self.currentPlayers) {
         NSData *playerEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:playerObject];
         [archiveArray addObject:playerEncodedObject];
     }
-    [aCoder encodeObject:archiveArray forKey:@"currentPlayer"];
+    [aCoder encodeObject:archiveArray forKey:@"currentPlayers"];
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -49,7 +49,7 @@
     self.completedDate = [aDecoder decodeObjectForKey:@"completedDate"];
 
     NSMutableArray *dataArray = [aDecoder decodeObjectForKey:@"currentPlayers"];
-    NSMutableArray *unarchivedArray = [NSMutableArray arrayWithCapacity:[dataArray count]];
+    NSMutableArray *unarchivedArray = [[NSMutableArray alloc]init];
     for (NSData *dataObject in dataArray)
     {
         Player *playerObject = [NSKeyedUnarchiver unarchiveObjectWithData:dataObject];

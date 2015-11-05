@@ -7,13 +7,17 @@
 //
 
 #import "HistoryVC.h"
+#import "Game.h"
 
 @implementation HistoryVC
+{
+    NSMutableArray *historyArray;
+}
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    historyArray = self.gameHistory;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -23,14 +27,14 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.textLabel.text = @"test";
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld", (long)((Game *)(historyArray[indexPath.row])).numberOfPlayers];
 
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return [historyArray count];
 }
 
 

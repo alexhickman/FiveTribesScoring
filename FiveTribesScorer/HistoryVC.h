@@ -11,5 +11,7 @@
 @interface HistoryVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableViewHistory;
+@property (strong, nonatomic) NSMutableArray *gameHistory;
+
 
 @end

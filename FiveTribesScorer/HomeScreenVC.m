@@ -26,6 +26,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSMutableArray *gameHist = [defaults objectForKey:@"gameHistory"];
+//    [defaults removeObjectForKey:@"gameHistory"];
     if (gameHist)
     {
         self.gameHistory = [self turnGameHistoryDataIntoArrayOfObjects:[defaults objectForKey:@"gameHistory"]];
@@ -44,7 +45,7 @@
 
 -(void)turnGameHistoryArrayIntoData
 {
-    NSMutableArray *archiveArray = [NSMutableArray arrayWithCapacity:[self.gameHistory count]];
+    NSMutableArray *archiveArray = [[NSMutableArray alloc]init];
     for (Game *gameObject in self.gameHistory) {
         NSData *gameEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:gameObject];
         [archiveArray addObject:gameEncodedObject];
@@ -56,7 +57,7 @@
 
 -(NSMutableArray *)turnGameHistoryDataIntoArrayOfObjects:(NSMutableArray *)dataArray
 {
-    NSMutableArray *unarchivedArray = [NSMutableArray arrayWithCapacity:[dataArray count]];
+    NSMutableArray *unarchivedArray = [[NSMutableArray alloc]init];
     for (NSData *dataObject in dataArray)
     {
         Game *gameObject = [NSKeyedUnarchiver unarchiveObjectWithData:dataObject];
@@ -65,17 +66,26 @@
     return unarchivedArray;
 }
 
-- (IBAction)buttonNewGame:(id)sender {
+- (IBAction)buttonNewGame:(id)sender
+{
     [self performSegueWithIdentifier:@"segueNewGame" sender:self];
 }
 
-- (IBAction)buttonHistory:(id)sender {
+- (IBAction)buttonHistory:(id)sender
+{
+    [self performSegueWithIdentifier:@"segueHistory" sender:self];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier isEqualToString:@"segueHistory"]) {
+        HistoryVC *hvc = [segue destinationViewController];
+        hvc.gameHistory = self.gameHistory;
+    }
+    if ([segue.identifier isEqualToString:@"segueNewGame"])
+    {
     NewGameVC *ngvc = [segue destinationViewController];
-    
+    }
 }
 
 @end
