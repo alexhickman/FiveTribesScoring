@@ -15,6 +15,7 @@
     NSMutableArray *pickerDataHundred;
     NSMutableArray *pickerDataTen;
     NSInteger currentComponent;
+    NSMutableArray *headerOfPV;
     
     NSInteger gold;
     NSInteger yellowVizier;
@@ -31,7 +32,8 @@
     
     UIImageView *keypad = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"keypad"]];
     
-    self.pickerViewScores.frame = CGRectMake(0, 50, self.view.frame.size.width, 400);
+//    self.pickerViewScores.frame = CGRectMake(0, 100, self.view.frame.size.width, 200);
+//    self.pickerViewScores.backgroundColor = [UIColor redColor];
     
     pickerDataHundred = [[NSMutableArray alloc]init];
     pickerDataHundred = [self makeArrayOfStringsTo:100];
@@ -40,7 +42,7 @@
     pickerDataTen = [[NSMutableArray alloc]init];
     pickerDataTen = [self makeArrayOfStringsTo:10];
     [pickerDataTen addObject:keypad];
-
+    
     gold = self.currentPlayer.gold;
     yellowVizier = self.currentPlayer.yellowVizier;
     whiteElder = self.currentPlayer.whiteElder;
@@ -54,6 +56,36 @@
     [self.pickerViewScores selectRow:palmTrees + [pickerDataTen count] inComponent:3 animated:NO];
     [self.pickerViewScores selectRow:palaces + [pickerDataTen count] inComponent:4 animated:NO];
     [self.pickerViewScores selectRow:tiles + [pickerDataHundred count] inComponent:5 animated:NO];
+    
+    [self headersOfPickerViews];
+}
+
+-(void)headersOfPickerViews
+{
+    headerOfPV = [[NSMutableArray alloc]init];
+    NSArray *labels = [[NSArray alloc]initWithObjects:@"Gold", @"Vizier", @"Elder", @"Palm", @"Palace", @"Tile", nil];
+    for (int i = 0; i<6; i++)
+    {
+        [self makeLabel:i];
+        [[headerOfPV objectAtIndex:i] setText:[labels objectAtIndex:i]];
+        [[headerOfPV objectAtIndex:i] setColor:[UIColor yellowColor]];
+
+        [[headerOfPV objectAtIndex:i] setTextAlignment:NSTextAlignmentCenter];
+        [self.view addSubview:[headerOfPV objectAtIndex:i]];
+    }
+
+}
+
+-(void)makeLabel:(int)component
+{
+    float lblWidth = self.view.frame.size.width / self.pickerViewScores.numberOfComponents;
+    float lblXposition = self.view.frame.origin.x;
+    float lblYposition = (self.pickerViewScores.frame.origin.y);
+    UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectMake(lblXposition + (lblWidth*component),
+                                                                  lblYposition,
+                                                                  lblWidth,
+                                                                  20)];
+    [headerOfPV addObject:newLabel];
 }
 
 -(NSMutableArray *)makeArrayOfStringsTo:(int)number
@@ -69,7 +101,7 @@
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
-    UIView *pickerCustomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height)];
+    UIView *pickerCustomView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, view.frame.size.width, view.frame.size.height)];
     
     if (component == 0 || component == 5)
     {
@@ -89,7 +121,6 @@
         {
             UILabel *mytext = [[UILabel alloc] init];
             mytext.textColor = [UIColor yellowColor];
-            
             mytext.text = pickerDataHundred[(row % [pickerDataHundred count])];
             [mytext setFrame:CGRectMake(0,0,30,30)];
             mytext.textAlignment = 1;

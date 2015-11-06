@@ -23,11 +23,23 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor brownColor];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [self.buttonPlayerOne setTitle:[defaults objectForKey:@"playerOneButton"] forState:UIControlStateNormal];
-    [self.buttonPlayerTwo setTitle:[defaults objectForKey:@"playerTwoButton"] forState:UIControlStateNormal];
-    [self.buttonPlayerThree setTitle:[defaults objectForKey:@"playerThreeButton"] forState:UIControlStateNormal];
-    [self.buttonPlayerFour setTitle:[defaults objectForKey:@"playerFourButton"] forState:UIControlStateNormal];
+    NSString *buttonDefaults = [defaults objectForKey:@"playerOneButton"];
+
+    if (buttonDefaults) {
+        [self.buttonPlayerOne setTitle:[defaults objectForKey:@"playerOneButton"] forState:UIControlStateNormal];
+        [self.buttonPlayerTwo setTitle:[defaults objectForKey:@"playerTwoButton"] forState:UIControlStateNormal];
+        [self.buttonPlayerThree setTitle:[defaults objectForKey:@"playerThreeButton"] forState:UIControlStateNormal];
+        [self.buttonPlayerFour setTitle:[defaults objectForKey:@"playerFourButton"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [self.buttonPlayerOne setTitle:@"+ New Player" forState:UIControlStateNormal];
+        [self.buttonPlayerTwo setTitle:@"+ New Player" forState:UIControlStateNormal];
+        [self.buttonPlayerThree setTitle:@"+ New Player" forState:UIControlStateNormal];
+        [self.buttonPlayerFour setTitle:@"+ New Player" forState:UIControlStateNormal];
+    }
     
     self.navigationItem.title = @"New Game";
 }
