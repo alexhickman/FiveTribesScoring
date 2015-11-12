@@ -27,7 +27,12 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld", (long)((Game *)(historyArray[indexPath.row])).numberOfPlayers];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    dateFormatter.dateStyle = NSDateFormatterShortStyle;
+    NSDate *date = ((Game *)(historyArray[indexPath.row])).completedDate;
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
 
     return cell;
 }

@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HistoryVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface HistoryVC : UITableViewController
 
-@property (weak, nonatomic) IBOutlet UITableView *tableViewHistory;
+//@property (weak, nonatomic) IBOutlet UITableView *tableViewHistory;
 @property (strong, nonatomic) NSMutableArray *gameHistory;
 
 

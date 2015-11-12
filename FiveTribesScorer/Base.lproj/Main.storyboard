@@ -61,7 +61,7 @@
                     <navigationItem key="navigationItem" id="Zhd-41-Msu"/>
                     <connections>
                         <segue destination="6K0-LI-Gob" kind="push" identifier="segueNewGame" id="A4w-X1-naO"/>
-                        <segue destination="J4d-rC-s64" kind="push" identifier="segueHistory" id="W6e-x6-QMd"/>
+                        <segue destination="5XT-Lh-HHm" kind="push" identifier="segueHistory" id="akL-uU-nMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -69,36 +69,23 @@
             <point key="canvasLocation" x="685" y="304"/>
         </scene>
         <!--HistoryVC-->
-        <scene sceneID="l6Q-WC-dTX">
+        <scene sceneID="Lsx-a6-zRQ">
             <objects>
-                <viewController id="J4d-rC-s64" customClass="HistoryVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MYV-fF-TQl"/>
-                        <viewControllerLayoutGuide type="bottom" id="did-HT-R7i"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="UQL-oG-g0x">
+                <tableViewController id="5XT-Lh-HHm" customClass="HistoryVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eIW-L7-5Rd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zZH-yO-FYJ">
-                                <rect key="frame" x="20" y="110" width="280" height="394"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="J4d-rC-s64" id="gdA-DY-Bby"/>
-                                    <outlet property="delegate" destination="J4d-rC-s64" id="7Gp-9Z-s8t"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="syF-AM-tOs"/>
-                    <connections>
-                        <outlet property="tableViewHistory" destination="zZH-yO-FYJ" id="Xiv-ET-rLC"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BEt-Hz-OuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <connections>
+                            <outlet property="dataSource" destination="5XT-Lh-HHm" id="wBF-rS-Hbs"/>
+                            <outlet property="delegate" destination="5XT-Lh-HHm" id="dIn-Lc-zTc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="p3S-QT-n8F"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3mC-pO-tLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="685" y="1017"/>
+            <point key="canvasLocation" x="337" y="1017"/>
         </scene>
         <!--New GameVC-->
         <scene sceneID="eUT-Ie-Ghv">

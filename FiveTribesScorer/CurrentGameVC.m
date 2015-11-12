@@ -75,6 +75,7 @@
 
 - (IBAction)buttonSaveGame:(id)sender
 {
+    self.currentGame.completedDate = [NSDate date];
     Game *gameToSave = [[Game alloc]init];
     gameToSave = self.currentGame;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"saveGame" object:gameToSave];
