@@ -18,13 +18,15 @@
 		8821D0A01BE2E43C009C0E17 /* NewGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D09F1BE2E43C009C0E17 /* NewGameVC.m */; };
 		8821D0A31BE2E476009C0E17 /* CurrentGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0A21BE2E476009C0E17 /* CurrentGameVC.m */; };
 		8821D0A71BE2E530009C0E17 /* ScoringPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0A61BE2E530009C0E17 /* ScoringPlayerVC.m */; };
-		8821D0AA1BE2E7A0009C0E17 /* MerchandiseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0A91BE2E7A0009C0E17 /* MerchandiseVC.m */; };
 		8821D0AD1BE2EA05009C0E17 /* HomeScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */; };
 		8821D0B01BE2EBD7009C0E17 /* HistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */; };
 		886CE1FD1BE4824000BCA725 /* CurrentGameTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */; };
 		886CE2031BE5B86400BCA725 /* ManualInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CE2021BE5B86400BCA725 /* ManualInputVC.m */; };
 		889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889FD8A71BE3FC08001F2EC8 /* Main.storyboard */; };
 		889FD8AF1BE41BAD001F2EC8 /* EditPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889FD8AE1BE41BAD001F2EC8 /* EditPlayerVC.m */; };
+		88C2770C1BF7C53900E4ECE6 /* MerchandiseTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C2770A1BF7C53900E4ECE6 /* MerchandiseTVCell.m */; };
+		88C2770D1BF7C53900E4ECE6 /* MerchandiseTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C2770B1BF7C53900E4ECE6 /* MerchandiseTVCell.xib */; };
+		88C277101BF7D2FC00E4ECE6 /* MerchandiseTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +70,6 @@
 		8821D0A21BE2E476009C0E17 /* CurrentGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentGameVC.m; sourceTree = "<group>"; };
 		8821D0A51BE2E530009C0E17 /* ScoringPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoringPlayerVC.h; sourceTree = "<group>"; };
 		8821D0A61BE2E530009C0E17 /* ScoringPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoringPlayerVC.m; sourceTree = "<group>"; };
-		8821D0A81BE2E7A0009C0E17 /* MerchandiseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseVC.h; sourceTree = "<group>"; };
-		8821D0A91BE2E7A0009C0E17 /* MerchandiseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseVC.m; sourceTree = "<group>"; };
 		8821D0AB1BE2EA05009C0E17 /* HomeScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScreenVC.h; sourceTree = "<group>"; };
 		8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScreenVC.m; sourceTree = "<group>"; };
 		8821D0AE1BE2EBD7009C0E17 /* HistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryVC.h; sourceTree = "<group>"; };
@@ -81,6 +81,11 @@
 		889FD8A81BE3FC08001F2EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		889FD8AD1BE41BAD001F2EC8 /* EditPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPlayerVC.h; path = ../EditPlayerVC.h; sourceTree = "<group>"; };
 		889FD8AE1BE41BAD001F2EC8 /* EditPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPlayerVC.m; path = ../EditPlayerVC.m; sourceTree = "<group>"; };
+		88C277091BF7C53900E4ECE6 /* MerchandiseTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseTVCell.h; sourceTree = "<group>"; };
+		88C2770A1BF7C53900E4ECE6 /* MerchandiseTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseTVCell.m; sourceTree = "<group>"; };
+		88C2770B1BF7C53900E4ECE6 /* MerchandiseTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchandiseTVCell.xib; sourceTree = "<group>"; };
+		88C2770E1BF7D2FC00E4ECE6 /* MerchandiseTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseTVC.h; sourceTree = "<group>"; };
+		88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +147,9 @@
 				8821D0771BE2E3AB009C0E17 /* Assets.xcassets */,
 				886CE1FB1BE4824000BCA725 /* CurrentGameTVCell.h */,
 				886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */,
+				88C277091BF7C53900E4ECE6 /* MerchandiseTVCell.h */,
+				88C2770A1BF7C53900E4ECE6 /* MerchandiseTVCell.m */,
+				88C2770B1BF7C53900E4ECE6 /* MerchandiseTVCell.xib */,
 				8821D0791BE2E3AB009C0E17 /* LaunchScreen.storyboard */,
 				8821D07C1BE2E3AB009C0E17 /* Info.plist */,
 				8821D06B1BE2E3AB009C0E17 /* Supporting Files */,
@@ -192,8 +200,8 @@
 				8821D0A61BE2E530009C0E17 /* ScoringPlayerVC.m */,
 				886CE2011BE5B86400BCA725 /* ManualInputVC.h */,
 				886CE2021BE5B86400BCA725 /* ManualInputVC.m */,
-				8821D0A81BE2E7A0009C0E17 /* MerchandiseVC.h */,
-				8821D0A91BE2E7A0009C0E17 /* MerchandiseVC.m */,
+				88C2770E1BF7D2FC00E4ECE6 /* MerchandiseTVC.h */,
+				88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 				889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */,
 				8821D07B1BE2E3AB009C0E17 /* LaunchScreen.storyboard in Resources */,
 				8821D0781BE2E3AB009C0E17 /* Assets.xcassets in Resources */,
+				88C2770D1BF7C53900E4ECE6 /* MerchandiseTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +340,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8821D0AA1BE2E7A0009C0E17 /* MerchandiseVC.m in Sources */,
 				886CE2031BE5B86400BCA725 /* ManualInputVC.m in Sources */,
 				886CE1FD1BE4824000BCA725 /* CurrentGameTVCell.m in Sources */,
 				8821D0B01BE2EBD7009C0E17 /* HistoryVC.m in Sources */,
@@ -340,8 +348,10 @@
 				8821D06D1BE2E3AB009C0E17 /* main.m in Sources */,
 				889FD8AF1BE41BAD001F2EC8 /* EditPlayerVC.m in Sources */,
 				8821A2E01BE3E9AD00D2CD4A /* Game.m in Sources */,
+				88C277101BF7D2FC00E4ECE6 /* MerchandiseTVC.m in Sources */,
 				8821D0A71BE2E530009C0E17 /* ScoringPlayerVC.m in Sources */,
 				8821D0A01BE2E43C009C0E17 /* NewGameVC.m in Sources */,
+				88C2770C1BF7C53900E4ECE6 /* MerchandiseTVCell.m in Sources */,
 				8821A2DD1BE3E96500D2CD4A /* Player.m in Sources */,
 				8821D0A31BE2E476009C0E17 /* CurrentGameVC.m in Sources */,
 			);

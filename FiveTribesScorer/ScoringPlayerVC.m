@@ -8,7 +8,7 @@
 
 #import "ScoringPlayerVC.h"
 #import "ManualInputVC.h"
-#import "MerchandiseVC.h"
+#import "MerchandiseTVC.h"
 
 @implementation ScoringPlayerVC
 {
@@ -256,7 +256,7 @@
     }
 }
 
-//delegate method
+//custom delegate method
 -(void)valueChosen:(NSInteger)newRow currentComponent:(NSInteger)component
 {
     if (component==0)
@@ -324,7 +324,7 @@
     }
     if ([segue.identifier isEqualToString:@"segueMerch"])
     {
-        MerchandiseVC *mvc = [segue destinationViewController];
+        MerchandiseTVC *mvc = [segue destinationViewController];
     }
     
 }

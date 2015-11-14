@@ -10,7 +10,6 @@
 
 @interface HistoryVC : UITableViewController
 
-//@property (weak, nonatomic) IBOutlet UITableView *tableViewHistory;
 @property (strong, nonatomic) NSMutableArray *gameHistory;
 
 
