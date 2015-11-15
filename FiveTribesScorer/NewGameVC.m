@@ -10,6 +10,7 @@
 #import "Game.h"
 #import "Player.h"
 #import "CurrentGameVC.h"
+#import "EndGameVC.h"
 
 @implementation NewGameVC
 
@@ -136,6 +137,19 @@
         self.labelError.text = @"Not have enough players";
     }
 }
+
+- (IBAction)unwindNewGame:(UIStoryboardSegue *)unwindSegue
+{
+    UIViewController* sourceViewController = unwindSegue.sourceViewController;
+    
+    if ([sourceViewController isKindOfClass:[EndGameVC class]])
+    {
+        NSLog(@"Coming from EndGame!");
+    }
+ 
+    
+}
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

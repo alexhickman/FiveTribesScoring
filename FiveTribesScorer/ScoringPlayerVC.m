@@ -32,9 +32,6 @@
     
     UIImageView *keypad = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"keypad"]];
     
-//    self.pickerViewScores.frame = CGRectMake(0, 100, self.view.frame.size.width, 200);
-//    self.pickerViewScores.backgroundColor = [UIColor redColor];
-    
     pickerDataHundred = [[NSMutableArray alloc]init];
     pickerDataHundred = [self makeArrayOfStringsTo:100];
     [pickerDataHundred addObject:keypad];
@@ -300,7 +297,9 @@
     self.currentPlayer.palmTrees = palmTrees;
     self.currentPlayer.palace = palaces;
     self.currentPlayer.tiles = tiles;
-    self.currentPlayer.totalScore = gold + yellowVizier + whiteElder + palmTrees + palaces + tiles;
+    
+    self.currentPlayer.totalScore = gold + yellowVizier + (2 * whiteElder) + (3 * palmTrees) + (5 * palaces) + tiles;
+    
     [self.navigationController popViewControllerAnimated:true];
     [self.delegateCustom passingScoresBack:self.currentPlayer atIndex:self.playerIndex];
 }

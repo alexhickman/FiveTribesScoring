@@ -29,6 +29,7 @@
         self.merchaniseScore = 0;
         self.djinnCardScore = 0;
         self.totalScore = 0;
+        self.winner = NO;
         self.merchandise = [[NSMutableArray alloc]init];
     }
     return self;
@@ -46,6 +47,7 @@
     [aCoder encodeInteger:self.merchaniseScore forKey:@"merchaniseScore"];
     [aCoder encodeInteger:self.djinnCardScore forKey:@"djinnCardScore"];
     [aCoder encodeInteger:self.totalScore forKey:@"totalScore"];
+    [aCoder encodeBool:self.winner forKey:@"winner"];
     [aCoder encodeObject:self.merchandise forKey:@"merchandise"];
 }
 
@@ -62,11 +64,8 @@
     self.tiles = [aDecoder decodeIntegerForKey:@"tiles"];
     self.merchaniseScore = [aDecoder decodeIntegerForKey:@"merchaniseScore"];
     self.djinnCardScore = [aDecoder decodeIntegerForKey:@"djinnCardScore"];
+    self.winner = [aDecoder decodeBoolForKey:@"winner"];
     self.totalScore = [aDecoder decodeIntegerForKey:@"totalScore"];
-    
-    
-//    NSArray *merch = [aDecoder decodeObjectForKey:@"currentPlayers"];
-//    self.merchandise = [[NSMutableArray alloc] initWithArray:merch copyItems:YES];
     
     return self;
 }

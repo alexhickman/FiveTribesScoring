@@ -10,7 +10,9 @@
 #import "MerchandiseTVCell.h"
 
 @interface MerchandiseTVC ()
-
+{
+    NSArray *cards;
+}
 @end
 
 @implementation MerchandiseTVC
@@ -18,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"MerchandiseTVCell" bundle:nil] forCellReuseIdentifier:@"merchTVCell"];
-    self.tableView.backgroundColor = [UIColor brownColor];
+      cards = [[NSArray alloc]initWithObjects:@"Cloth", @"Fish", @"Gems", @"Gold", @"Ivory", @"Paper", @"Pots", @"Spices", @"Wheat", @"Fakiers", nil];
 }
 
 -(MerchandiseTVCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -30,17 +32,25 @@
         cell = [[MerchandiseTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.labelCardName.text = @"Yahoo!";
+    cell.labelCardName.text = [cards objectAtIndex:indexPath.row];
     cell.labelCardName.backgroundColor = [UIColor brownColor];
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 10;
 }
 
+- (IBAction)buttonSave:(id)sender
+{
 
+}
+
+- (IBAction)buttonCancel:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:true];
+}
 
 
 

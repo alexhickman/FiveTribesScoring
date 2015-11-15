@@ -22,6 +22,7 @@
 @property (nonatomic) NSInteger merchaniseScore;
 @property (nonatomic) NSInteger djinnCardScore;
 @property (nonatomic) NSInteger totalScore;
+@property (nonatomic) BOOL winner;
 
 +(Player *)newPlayer;
 

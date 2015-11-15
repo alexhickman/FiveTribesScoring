@@ -33,6 +33,7 @@
 {
     [aCoder encodeInteger:self.numberOfPlayers forKey:@"numberOfPlayers"];
     [aCoder encodeObject:self.completedDate forKey:@"completedDate"];
+    [aCoder encodeObject:self.winningMessage forKey:@"winningMessage"];
     
     NSMutableArray *archiveArray = [[NSMutableArray alloc]init];
     for (Player *playerObject in self.currentPlayers) {
@@ -47,6 +48,7 @@
     self = [self init];
     self.numberOfPlayers = [aDecoder decodeIntegerForKey:@"numberOfPlayers"];
     self.completedDate = [aDecoder decodeObjectForKey:@"completedDate"];
+    self.winningMessage = [aDecoder decodeObjectForKey:@"winningMessage"];
 
     NSMutableArray *dataArray = [aDecoder decodeObjectForKey:@"currentPlayers"];
     NSMutableArray *unarchivedArray = [[NSMutableArray alloc]init];

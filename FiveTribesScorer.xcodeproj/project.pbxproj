@@ -27,6 +27,7 @@
 		88C2770C1BF7C53900E4ECE6 /* MerchandiseTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C2770A1BF7C53900E4ECE6 /* MerchandiseTVCell.m */; };
 		88C2770D1BF7C53900E4ECE6 /* MerchandiseTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C2770B1BF7C53900E4ECE6 /* MerchandiseTVCell.xib */; };
 		88C277101BF7D2FC00E4ECE6 /* MerchandiseTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */; };
+		88C277131BF7EF9800E4ECE6 /* EndGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C277121BF7EF9800E4ECE6 /* EndGameVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		88C2770B1BF7C53900E4ECE6 /* MerchandiseTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchandiseTVCell.xib; sourceTree = "<group>"; };
 		88C2770E1BF7D2FC00E4ECE6 /* MerchandiseTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseTVC.h; sourceTree = "<group>"; };
 		88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseTVC.m; sourceTree = "<group>"; };
+		88C277111BF7EF9800E4ECE6 /* EndGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameVC.h; sourceTree = "<group>"; };
+		88C277121BF7EF9800E4ECE6 /* EndGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +205,8 @@
 				886CE2021BE5B86400BCA725 /* ManualInputVC.m */,
 				88C2770E1BF7D2FC00E4ECE6 /* MerchandiseTVC.h */,
 				88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */,
+				88C277111BF7EF9800E4ECE6 /* EndGameVC.h */,
+				88C277121BF7EF9800E4ECE6 /* EndGameVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				8821D0A01BE2E43C009C0E17 /* NewGameVC.m in Sources */,
 				88C2770C1BF7C53900E4ECE6 /* MerchandiseTVCell.m in Sources */,
 				8821A2DD1BE3E96500D2CD4A /* Player.m in Sources */,
+				88C277131BF7EF9800E4ECE6 /* EndGameVC.m in Sources */,
 				8821D0A31BE2E476009C0E17 /* CurrentGameVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

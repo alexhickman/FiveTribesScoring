@@ -13,6 +13,7 @@
 @property (nonatomic) NSInteger numberOfPlayers;
 @property (strong, nonatomic) NSMutableArray *currentPlayers;
 @property (strong, nonatomic) NSDate *completedDate;
+@property (strong, nonatomic) NSString *winningMessage;
 
 
 +(Game *)newGame:(NSInteger)numberOfPlayers;
