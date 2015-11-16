@@ -7,6 +7,7 @@
 //
 
 #import "MerchandiseTVC.h"
+#import "Scoring.h"
 
 @interface MerchandiseTVC ()
 {
@@ -16,7 +17,6 @@
 @end
 
 @implementation MerchandiseTVC
-
 
 - (void)viewDidLoad
 {
@@ -56,7 +56,7 @@
     }
     else
     {
-    [cell setSelectedItem:((NSNumber*)(self.currentPlayer.merchandise[indexPath.row])).intValue];
+    [cell setSelectedItem:((NSNumber*)(self.currentPlayer.merchandiseCards[indexPath.row])).intValue];
     }
     
     return cell;
@@ -84,12 +84,14 @@
     }
     else
     {
-        [self.currentPlayer.merchandise replaceObjectAtIndex:pickerPath.row withObject:[NSNumber numberWithInteger:item]];
+        [self.currentPlayer.merchandiseCards replaceObjectAtIndex:pickerPath.row withObject:[NSNumber numberWithInteger:item]];
     }
 }
 
 - (IBAction)buttonSave:(id)sender
 {
+    self.currentPlayer.merchSets = [Scoring calculateMerchandiseSets:self.currentPlayer.merchandiseCards];
+    self.currentPlayer.merchaniseScore = [Scoring calculateMerchandiseScoreWith:self.currentPlayer.merchSets];
     [self.delegateCustom passingMerchandiseCardsBack:self.currentPlayer];
     [self.navigationController popViewControllerAnimated:true];
 }

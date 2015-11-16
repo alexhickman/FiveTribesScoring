@@ -19,6 +19,7 @@
 
 @interface ScoringPlayerVC : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, manualInputProtocol, merchandiseProtocol>
 
+@property (weak, nonatomic) IBOutlet UILabel *labelMerchandise;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerViewScores;
 @property (strong, nonatomic) Player *currentPlayer;
 @property (nonatomic) NSInteger playerIndex;

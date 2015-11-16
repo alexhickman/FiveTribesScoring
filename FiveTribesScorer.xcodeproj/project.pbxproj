@@ -21,6 +21,8 @@
 		8821D0A71BE2E530009C0E17 /* ScoringPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0A61BE2E530009C0E17 /* ScoringPlayerVC.m */; };
 		8821D0AD1BE2EA05009C0E17 /* HomeScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */; };
 		8821D0B01BE2EBD7009C0E17 /* HistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */; };
+		882529051BFA691D00FFDE78 /* Scoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 882529041BFA691D00FFDE78 /* Scoring.m */; };
+		882529081BFAA20200FFDE78 /* DjinnVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882529071BFAA20200FFDE78 /* DjinnVC.m */; };
 		886CE1FD1BE4824000BCA725 /* CurrentGameTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */; };
 		886CE2031BE5B86400BCA725 /* ManualInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CE2021BE5B86400BCA725 /* ManualInputVC.m */; };
 		889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889FD8A71BE3FC08001F2EC8 /* Main.storyboard */; };
@@ -74,6 +76,10 @@
 		8821D0AC1BE2EA05009C0E17 /* HomeScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScreenVC.m; sourceTree = "<group>"; };
 		8821D0AE1BE2EBD7009C0E17 /* HistoryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryVC.h; sourceTree = "<group>"; };
 		8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryVC.m; sourceTree = "<group>"; };
+		882529031BFA691D00FFDE78 /* Scoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scoring.h; sourceTree = "<group>"; };
+		882529041BFA691D00FFDE78 /* Scoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scoring.m; sourceTree = "<group>"; };
+		882529061BFAA20200FFDE78 /* DjinnVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DjinnVC.h; sourceTree = "<group>"; };
+		882529071BFAA20200FFDE78 /* DjinnVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DjinnVC.m; sourceTree = "<group>"; };
 		886CE1FB1BE4824000BCA725 /* CurrentGameTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentGameTVCell.h; sourceTree = "<group>"; };
 		886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentGameTVCell.m; sourceTree = "<group>"; };
 		886CE2011BE5B86400BCA725 /* ManualInputVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualInputVC.h; sourceTree = "<group>"; };
@@ -157,6 +163,8 @@
 				8821A2DC1BE3E96500D2CD4A /* Player.m */,
 				8821A2DE1BE3E9AD00D2CD4A /* Game.h */,
 				8821A2DF1BE3E9AD00D2CD4A /* Game.m */,
+				882529031BFA691D00FFDE78 /* Scoring.h */,
+				882529041BFA691D00FFDE78 /* Scoring.m */,
 				8821D0A41BE2E48A009C0E17 /* ViewControllers */,
 				8821D0771BE2E3AB009C0E17 /* Assets.xcassets */,
 				886CE1FB1BE4824000BCA725 /* CurrentGameTVCell.h */,
@@ -213,6 +221,8 @@
 				886CE2021BE5B86400BCA725 /* ManualInputVC.m */,
 				88C2770E1BF7D2FC00E4ECE6 /* MerchandiseTVC.h */,
 				88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */,
+				882529061BFAA20200FFDE78 /* DjinnVC.h */,
+				882529071BFAA20200FFDE78 /* DjinnVC.m */,
 				88C277111BF7EF9800E4ECE6 /* EndGameVC.h */,
 				88C277121BF7EF9800E4ECE6 /* EndGameVC.m */,
 			);
@@ -411,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				882529081BFAA20200FFDE78 /* DjinnVC.m in Sources */,
 				886CE2031BE5B86400BCA725 /* ManualInputVC.m in Sources */,
 				886CE1FD1BE4824000BCA725 /* CurrentGameTVCell.m in Sources */,
 				8821D0B01BE2EBD7009C0E17 /* HistoryVC.m in Sources */,
@@ -420,6 +431,7 @@
 				889FD8AF1BE41BAD001F2EC8 /* EditPlayerVC.m in Sources */,
 				8821A2E01BE3E9AD00D2CD4A /* Game.m in Sources */,
 				88C277101BF7D2FC00E4ECE6 /* MerchandiseTVC.m in Sources */,
+				882529051BFA691D00FFDE78 /* Scoring.m in Sources */,
 				8821D0A71BE2E530009C0E17 /* ScoringPlayerVC.m in Sources */,
 				8821D0A01BE2E43C009C0E17 /* NewGameVC.m in Sources */,
 				8821A2DD1BE3E96500D2CD4A /* Player.m in Sources */,

@@ -9,6 +9,7 @@
 #import "ScoringPlayerVC.h"
 #import "ManualInputVC.h"
 #import "MerchandiseTVC.h"
+#import "DjinnVC.h"
 
 @implementation ScoringPlayerVC
 {
@@ -58,6 +59,23 @@
     [self headersOfPickerViews];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (self.currentPlayer.merchaniseScore == 0) {
+        self.labelMerchandise.text = @"Please enter your merchandise cards";
+    }
+    else
+    {
+        NSString *message = @"Sets with sizes: ";
+        for (int i = 0; i < self.currentPlayer.merchSets.count; i++)
+        {
+            message = [NSString stringWithFormat:@"%@  %@", message, [self.currentPlayer.merchSets objectAtIndex:i]];
+        }
+        message = [NSString stringWithFormat:@"%@\nScore: %ld", message, (long)self.currentPlayer.merchaniseScore] ;
+        self.labelMerchandise.text = message;
+    }
+}
+
 -(void)headersOfPickerViews
 {
     headerOfPV = [[NSMutableArray alloc]init];
@@ -67,11 +85,11 @@
         [self makeLabel:i];
         [[headerOfPV objectAtIndex:i] setText:[labels objectAtIndex:i]];
         [[headerOfPV objectAtIndex:i] setColor:[UIColor yellowColor]];
-
+        
         [[headerOfPV objectAtIndex:i] setTextAlignment:NSTextAlignmentCenter];
         [self.view addSubview:[headerOfPV objectAtIndex:i]];
     }
-
+    
 }
 
 -(void)makeLabel:(int)component
@@ -305,8 +323,7 @@
     self.currentPlayer.palmTrees = palmTrees;
     self.currentPlayer.palace = palaces;
     self.currentPlayer.tiles = tiles;
-    
-    self.currentPlayer.totalScore = gold + yellowVizier + (2 * whiteElder) + (3 * palmTrees) + (5 * palaces) + tiles;
+    self.currentPlayer.totalScore = gold + yellowVizier + (2 * whiteElder) + (3 * palmTrees) + (5 * palaces) + tiles + self.currentPlayer.merchaniseScore;
     
     [self.navigationController popViewControllerAnimated:true];
     [self.delegateCustom passingScoresBack:self.currentPlayer atIndex:self.playerIndex];
@@ -322,6 +339,11 @@
     [self performSegueWithIdentifier:@"segueMerch" sender:self];
 }
 
+- (IBAction)buttonDjinn:(id)sender
+{
+    [self performSegueWithIdentifier:@"segueDjinn" sender:self];
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"segueManualInput"]) {
@@ -333,7 +355,10 @@
     {
         MerchandiseTVC *mvc = [segue destinationViewController];
         mvc.currentPlayer = self.currentPlayer;
-//        mvc.delega
+    }
+    if ([segue.identifier isEqualToString:@"segueDjinn"]) {
+        DjinnVC *dvc = [segue destinationViewController];
+        dvc.currentPlayer = self.currentPlayer;
     }
     
 }

@@ -507,17 +507,30 @@
                                 <state key="normal" title="Djinn's">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonDjinn:" destination="G5b-4f-YxU" eventType="touchUpInside" id="CF6-7v-cvE"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxh-xu-zZT">
+                                <rect key="frame" x="16" y="420" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.96902360430000001" green="1" blue="0.31859522649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="s9e-wU-xTa" firstAttribute="top" secondItem="6ma-lI-R8V" secondAttribute="bottom" constant="50" id="0Yd-zS-Sxk"/>
+                            <constraint firstItem="Xxh-xu-zZT" firstAttribute="leading" secondItem="6nJ-vp-Msq" secondAttribute="leadingMargin" id="BRR-ix-uuB"/>
                             <constraint firstItem="guc-B8-GLt" firstAttribute="leading" secondItem="6nJ-vp-Msq" secondAttribute="leading" constant="5" id="EEz-UX-7bV"/>
                             <constraint firstAttribute="trailing" secondItem="guc-B8-GLt" secondAttribute="trailing" constant="5" id="EH3-lh-sIF"/>
                             <constraint firstItem="s9e-wU-xTa" firstAttribute="centerX" secondItem="6nJ-vp-Msq" secondAttribute="centerX" id="F5D-kC-Cu6"/>
                             <constraint firstItem="guc-B8-GLt" firstAttribute="top" secondItem="uD4-mr-b6h" secondAttribute="bottom" constant="50" id="RdA-zs-Vwo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Xxh-xu-zZT" secondAttribute="trailing" id="STf-eR-VPo"/>
+                            <constraint firstItem="Xxh-xu-zZT" firstAttribute="centerX" secondItem="6nJ-vp-Msq" secondAttribute="centerX" id="iXx-z4-6SI"/>
                             <constraint firstItem="6ma-lI-R8V" firstAttribute="centerX" secondItem="6nJ-vp-Msq" secondAttribute="centerX" id="pJt-GG-9kF"/>
                             <constraint firstItem="6ma-lI-R8V" firstAttribute="top" secondItem="guc-B8-GLt" secondAttribute="bottom" constant="35" id="s45-3P-QAk"/>
+                            <constraint firstItem="Xxh-xu-zZT" firstAttribute="top" secondItem="6ma-lI-R8V" secondAttribute="bottom" constant="5" id="y67-Rx-I26"/>
                             <constraint firstItem="guc-B8-GLt" firstAttribute="centerX" secondItem="6nJ-vp-Msq" secondAttribute="centerX" id="ysV-ow-QBr"/>
                         </constraints>
                     </view>
@@ -550,9 +563,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="labelMerchandise" destination="Xxh-xu-zZT" id="NJ0-25-fmX"/>
                         <outlet property="pickerViewScores" destination="guc-B8-GLt" id="fNI-hu-63O"/>
                         <segue destination="if1-8c-QLP" kind="modal" identifier="segueManualInput" id="4XM-pv-AtR"/>
                         <segue destination="s1H-cX-Lwn" kind="push" identifier="segueMerch" id="7nN-i0-qAI"/>
+                        <segue destination="60N-Ys-BOj" kind="push" identifier="segueDjinn" id="dT8-sl-dyj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVY-3A-Iza" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -773,6 +788,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4m0-Yk-AOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1559" y="1750"/>
+        </scene>
+        <!--DjinnVC-->
+        <scene sceneID="CQh-5f-6kd">
+            <objects>
+                <viewController id="60N-Ys-BOj" customClass="DjinnVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mQi-ED-g4K"/>
+                        <viewControllerLayoutGuide type="bottom" id="TA1-zO-L8v"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NHv-Ak-evG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ISC-IN-VPF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ssz-a1-yTf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1963" y="1750"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Sa-lV-1ye">

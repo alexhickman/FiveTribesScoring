@@ -35,7 +35,9 @@
             NSNumber *zero = [NSNumber numberWithInteger:0];
             [merch addObject:zero];
         }
-        self.merchandise = merch;
+        self.merchandiseCards = merch;
+        self.merchSets = [[NSMutableArray alloc]init];
+        
     }
     return self;
 }
@@ -53,7 +55,8 @@
     [aCoder encodeInteger:self.djinnCardScore forKey:@"djinnCardScore"];
     [aCoder encodeInteger:self.totalScore forKey:@"totalScore"];
     [aCoder encodeBool:self.winner forKey:@"winner"];
-    [aCoder encodeObject:self.merchandise forKey:@"merchandise"];
+    [aCoder encodeObject:self.merchandiseCards forKey:@"merchandiseCards"];
+    [aCoder encodeObject:self.merchSets forKey:@"merchSets"];
     [aCoder encodeInteger:self.fakirs forKey:@"fakirs"];
 }
 
@@ -61,7 +64,8 @@
 {
     self = [self init];
     self.name = [aDecoder decodeObjectForKey:@"name"];
-    self.merchandise = [aDecoder decodeObjectForKey:@"merchandise"];
+    self.merchandiseCards = [aDecoder decodeObjectForKey:@"merchandiseCards"];
+    self.merchSets = [aDecoder decodeObjectForKey:@"merchSets"];
     self.fakirs = [aDecoder decodeIntegerForKey:@"fakirs"];
     self.gold = [aDecoder decodeIntegerForKey:@"gold"];
     self.yellowVizier = [aDecoder decodeIntegerForKey:@"yellowVizier"];
