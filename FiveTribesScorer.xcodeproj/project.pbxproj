@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		297EC4F1974F4A510385A92B /* libPods-FiveTribesScorer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9622DC0BC92BD6CFED5E5D8 /* libPods-FiveTribesScorer.a */; };
 		8821A2DD1BE3E96500D2CD4A /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821A2DC1BE3E96500D2CD4A /* Player.m */; };
 		8821A2E01BE3E9AD00D2CD4A /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821A2DF1BE3E9AD00D2CD4A /* Game.m */; };
 		8821D06D1BE2E3AB009C0E17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D06C1BE2E3AB009C0E17 /* main.m */; };
@@ -24,8 +25,6 @@
 		886CE2031BE5B86400BCA725 /* ManualInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CE2021BE5B86400BCA725 /* ManualInputVC.m */; };
 		889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889FD8A71BE3FC08001F2EC8 /* Main.storyboard */; };
 		889FD8AF1BE41BAD001F2EC8 /* EditPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889FD8AE1BE41BAD001F2EC8 /* EditPlayerVC.m */; };
-		88C2770C1BF7C53900E4ECE6 /* MerchandiseTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C2770A1BF7C53900E4ECE6 /* MerchandiseTVCell.m */; };
-		88C2770D1BF7C53900E4ECE6 /* MerchandiseTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C2770B1BF7C53900E4ECE6 /* MerchandiseTVCell.xib */; };
 		88C277101BF7D2FC00E4ECE6 /* MerchandiseTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */; };
 		88C277131BF7EF9800E4ECE6 /* EndGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C277121BF7EF9800E4ECE6 /* EndGameVC.m */; };
 /* End PBXBuildFile section */
@@ -82,13 +81,13 @@
 		889FD8A81BE3FC08001F2EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		889FD8AD1BE41BAD001F2EC8 /* EditPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPlayerVC.h; path = ../EditPlayerVC.h; sourceTree = "<group>"; };
 		889FD8AE1BE41BAD001F2EC8 /* EditPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPlayerVC.m; path = ../EditPlayerVC.m; sourceTree = "<group>"; };
-		88C277091BF7C53900E4ECE6 /* MerchandiseTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseTVCell.h; sourceTree = "<group>"; };
-		88C2770A1BF7C53900E4ECE6 /* MerchandiseTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseTVCell.m; sourceTree = "<group>"; };
-		88C2770B1BF7C53900E4ECE6 /* MerchandiseTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MerchandiseTVCell.xib; sourceTree = "<group>"; };
 		88C2770E1BF7D2FC00E4ECE6 /* MerchandiseTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseTVC.h; sourceTree = "<group>"; };
 		88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseTVC.m; sourceTree = "<group>"; };
 		88C277111BF7EF9800E4ECE6 /* EndGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameVC.h; sourceTree = "<group>"; };
 		88C277121BF7EF9800E4ECE6 /* EndGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameVC.m; sourceTree = "<group>"; };
+		9BAB9316FD5DB866F3631749 /* Pods-FiveTribesScorer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FiveTribesScorer.release.xcconfig"; path = "Pods/Target Support Files/Pods-FiveTribesScorer/Pods-FiveTribesScorer.release.xcconfig"; sourceTree = "<group>"; };
+		A23847B091D4EF5440E5292F /* Pods-FiveTribesScorer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FiveTribesScorer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FiveTribesScorer/Pods-FiveTribesScorer.debug.xcconfig"; sourceTree = "<group>"; };
+		B9622DC0BC92BD6CFED5E5D8 /* libPods-FiveTribesScorer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FiveTribesScorer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				297EC4F1974F4A510385A92B /* libPods-FiveTribesScorer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84981283FF03DF12BE08B44B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A23847B091D4EF5440E5292F /* Pods-FiveTribesScorer.debug.xcconfig */,
+				9BAB9316FD5DB866F3631749 /* Pods-FiveTribesScorer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8821D05F1BE2E3AB009C0E17 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +132,8 @@
 				8821D0841BE2E3AC009C0E17 /* FiveTribesScorerTests */,
 				8821D08F1BE2E3AC009C0E17 /* FiveTribesScorerUITests */,
 				8821D0691BE2E3AB009C0E17 /* Products */,
+				84981283FF03DF12BE08B44B /* Pods */,
+				BB61308856C51A64C44DE320 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,9 +161,6 @@
 				8821D0771BE2E3AB009C0E17 /* Assets.xcassets */,
 				886CE1FB1BE4824000BCA725 /* CurrentGameTVCell.h */,
 				886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */,
-				88C277091BF7C53900E4ECE6 /* MerchandiseTVCell.h */,
-				88C2770A1BF7C53900E4ECE6 /* MerchandiseTVCell.m */,
-				88C2770B1BF7C53900E4ECE6 /* MerchandiseTVCell.xib */,
 				8821D0791BE2E3AB009C0E17 /* LaunchScreen.storyboard */,
 				8821D07C1BE2E3AB009C0E17 /* Info.plist */,
 				8821D06B1BE2E3AB009C0E17 /* Supporting Files */,
@@ -211,6 +219,14 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		BB61308856C51A64C44DE320 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9622DC0BC92BD6CFED5E5D8 /* libPods-FiveTribesScorer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,9 +234,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8821D0951BE2E3AC009C0E17 /* Build configuration list for PBXNativeTarget "FiveTribesScorer" */;
 			buildPhases = (
+				83191569D0B5DDF40E32C122 /* Check Pods Manifest.lock */,
 				8821D0641BE2E3AB009C0E17 /* Sources */,
 				8821D0651BE2E3AB009C0E17 /* Frameworks */,
 				8821D0661BE2E3AB009C0E17 /* Resources */,
+				5E9D31AFFE47FDFDA48CD98B /* Embed Pods Frameworks */,
+				34B879E3DBAC1E8906054049 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -320,7 +339,6 @@
 				889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */,
 				8821D07B1BE2E3AB009C0E17 /* LaunchScreen.storyboard in Resources */,
 				8821D0781BE2E3AB009C0E17 /* Assets.xcassets in Resources */,
-				88C2770D1BF7C53900E4ECE6 /* MerchandiseTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +358,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		34B879E3DBAC1E8906054049 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FiveTribesScorer/Pods-FiveTribesScorer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E9D31AFFE47FDFDA48CD98B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FiveTribesScorer/Pods-FiveTribesScorer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83191569D0B5DDF40E32C122 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8821D0641BE2E3AB009C0E17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -356,7 +422,6 @@
 				88C277101BF7D2FC00E4ECE6 /* MerchandiseTVC.m in Sources */,
 				8821D0A71BE2E530009C0E17 /* ScoringPlayerVC.m in Sources */,
 				8821D0A01BE2E43C009C0E17 /* NewGameVC.m in Sources */,
-				88C2770C1BF7C53900E4ECE6 /* MerchandiseTVCell.m in Sources */,
 				8821A2DD1BE3E96500D2CD4A /* Player.m in Sources */,
 				88C277131BF7EF9800E4ECE6 /* EndGameVC.m in Sources */,
 				8821D0A31BE2E476009C0E17 /* CurrentGameVC.m in Sources */,
@@ -496,6 +561,7 @@
 		};
 		8821D0961BE2E3AC009C0E17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A23847B091D4EF5440E5292F /* Pods-FiveTribesScorer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FiveTribesScorer/Info.plist;
@@ -507,6 +573,7 @@
 		};
 		8821D0971BE2E3AC009C0E17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BAB9316FD5DB866F3631749 /* Pods-FiveTribesScorer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FiveTribesScorer/Info.plist;

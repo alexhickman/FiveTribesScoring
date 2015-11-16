@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CPPickerViewCell.h>
+#import "Player.h"
 
-@interface MerchandiseTVC : UITableViewController
+@interface MerchandiseTVC : UITableViewController <CPPickerViewCellDataSource, CPPickerViewCellDelegate>
+
+@property (strong, nonatomic) Player *currentPlayer;
 
 @end

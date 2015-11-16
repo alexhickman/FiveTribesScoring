@@ -30,7 +30,12 @@
         self.djinnCardScore = 0;
         self.totalScore = 0;
         self.winner = NO;
-        self.merchandise = [[NSMutableArray alloc]init];
+        NSMutableArray *merch = [[NSMutableArray alloc]init];
+        for (int i = 0; i < 9; i++) {
+            NSNumber *zero = [NSNumber numberWithInteger:0];
+            [merch addObject:zero];
+        }
+        self.merchandise = merch;
     }
     return self;
 }
@@ -49,6 +54,7 @@
     [aCoder encodeInteger:self.totalScore forKey:@"totalScore"];
     [aCoder encodeBool:self.winner forKey:@"winner"];
     [aCoder encodeObject:self.merchandise forKey:@"merchandise"];
+    [aCoder encodeInteger:self.fakirs forKey:@"fakirs"];
 }
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -56,6 +62,7 @@
     self = [self init];
     self.name = [aDecoder decodeObjectForKey:@"name"];
     self.merchandise = [aDecoder decodeObjectForKey:@"merchandise"];
+    self.fakirs = [aDecoder decodeIntegerForKey:@"fakirs"];
     self.gold = [aDecoder decodeIntegerForKey:@"gold"];
     self.yellowVizier = [aDecoder decodeIntegerForKey:@"yellowVizier"];
     self.whiteElder = [aDecoder decodeIntegerForKey:@"whiteElder"];

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSString *name;
 
 @property (strong, nonatomic) NSMutableArray *merchandise;
+@property (nonatomic) NSInteger fakirs;
 @property (nonatomic) NSInteger gold;
 @property (nonatomic) NSInteger yellowVizier;
 @property (nonatomic) NSInteger whiteElder;

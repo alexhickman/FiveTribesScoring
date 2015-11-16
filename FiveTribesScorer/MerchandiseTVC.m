@@ -7,45 +7,81 @@
 //
 
 #import "MerchandiseTVC.h"
-#import "MerchandiseTVCell.h"
 
 @interface MerchandiseTVC ()
 {
     NSArray *cards;
+    NSArray *numberOfCards;
 }
 @end
 
 @implementation MerchandiseTVC
 
-- (void)viewDidLoad {
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    [self.tableView registerNib:[UINib nibWithNibName:@"MerchandiseTVCell" bundle:nil] forCellReuseIdentifier:@"merchTVCell"];
-      cards = [[NSArray alloc]initWithObjects:@"Cloth", @"Fish", @"Gems", @"Gold", @"Ivory", @"Paper", @"Pots", @"Spices", @"Wheat", @"Fakiers", nil];
-    //create branch
+    self.view.backgroundColor = [UIColor brownColor];
+    self.tableView.allowsSelection = false;
+    self.tableView.bounces = false;
+    self.tableView.scrollEnabled = false;
+    
+    cards = [[NSArray alloc]initWithObjects:@"Wheat", @"Fish", @"Pottery", @"Silk", @"Papyrus", @"Spices", @"Jewels", @"Gold", @"Ivory", @"Fakiers", nil];
+    NSNumber *sixCards = [NSNumber numberWithInteger:7];
+    NSNumber *fourCards = [NSNumber numberWithInteger:5];
+    NSNumber *twoCards = [NSNumber numberWithInteger:3];
+    NSNumber *eighteenCards = [NSNumber numberWithInteger:19];
+    numberOfCards = [[NSArray alloc]initWithObjects:sixCards, sixCards, sixCards, fourCards, fourCards, fourCards, twoCards, twoCards, twoCards, eighteenCards, nil];
 }
 
--(MerchandiseTVCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(CPPickerViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = @"merchTVCell";
-    MerchandiseTVCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    NSString *cellIdentifier = @"merchCPPCell";
+    CPPickerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell)
     {
-        cell = [[MerchandiseTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[CPPickerViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
-    cell.labelCardName.text = [cards objectAtIndex:indexPath.row];
-    cell.labelCardName.backgroundColor = [UIColor brownColor];
+    cell.dataSource = self;
+    cell.delegate = self;
+    cell.currentIndexPath = indexPath;
+    cell.textLabel.text = [cards objectAtIndex:indexPath.row];
+    cell.textLabel.textColor = [UIColor yellowColor];
+    cell.selectedBackgroundView = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor brownColor];
+    [cell reloadData];
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [cards count];
+}
+
+-(NSInteger)numberOfItemsInPickerViewAtIndexPath:(NSIndexPath *)pickerPath
+{
+    return ((NSNumber *)[numberOfCards objectAtIndex:pickerPath.row]).intValue;
+}
+
+-(NSString *)pickerViewAtIndexPath:(NSIndexPath *)pickerPath titleForItem:(NSInteger)item
+{
+    return [NSString stringWithFormat:@"%ld", (long)item];
+}
+
+-(void)pickerViewAtIndexPath:(NSIndexPath *)pickerPath didSelectItem:(NSInteger)item
+{
+    if (pickerPath.row == 9) {
+        self.currentPlayer.fakirs = item;
+    }
+    else
+    {
+        [self.currentPlayer.merchandise replaceObjectAtIndex:pickerPath.row withObject:[NSNumber numberWithInteger:item]];
+    }
 }
 
 - (IBAction)buttonSave:(id)sender
 {
-
+    
 }
 
 - (IBAction)buttonCancel:(id)sender

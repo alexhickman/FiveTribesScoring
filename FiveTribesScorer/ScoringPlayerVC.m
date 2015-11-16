@@ -97,6 +97,7 @@
     return arrayOfNumbers;
 }
 
+//making of the pickerview
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
     UIView *pickerCustomView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, view.frame.size.width, view.frame.size.height)];
@@ -254,7 +255,7 @@
     }
 }
 
-//custom delegate method
+//custom delegate method from manual scoringVC
 -(void)valueChosen:(NSInteger)newRow currentComponent:(NSInteger)component
 {
     if (component==0)
@@ -325,6 +326,7 @@
     if ([segue.identifier isEqualToString:@"segueMerch"])
     {
         MerchandiseTVC *mvc = [segue destinationViewController];
+        mvc.currentPlayer = self.currentPlayer;
     }
     
 }
