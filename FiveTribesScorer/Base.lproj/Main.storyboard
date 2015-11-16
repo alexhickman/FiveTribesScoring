@@ -82,6 +82,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="p3S-QT-n8F"/>
+                    <connections>
+                        <segue destination="22Y-J5-bGS" kind="push" identifier="segueOldGameView" id="h5F-me-ja8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mC-pO-tLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -790,4 +793,7 @@
             <point key="canvasLocation" x="153" y="304"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="h5F-me-ja8"/>
+    </inferredMetricsTieBreakers>
 </document>

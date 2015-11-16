@@ -30,9 +30,10 @@
     [self performSegueWithIdentifier:@"unwindSegueToNewGame" sender:self];
 }
 
+//just dismisses for now
 - (IBAction)buttonUpload:(id)sender
 {
-
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
