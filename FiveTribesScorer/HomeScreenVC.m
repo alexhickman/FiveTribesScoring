@@ -22,11 +22,11 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSMutableArray *gameHist = [defaults objectForKey:@"gameHistory"];
-//    [defaults removeObjectForKey:@"gameHistory"];
+    //    [defaults removeObjectForKey:@"gameHistory"];
     if (gameHist)
     {
         self.gameHistory = [self turnGameHistoryDataIntoArrayOfObjects:[defaults objectForKey:@"gameHistory"]];
@@ -37,10 +37,10 @@
     }
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"saveGame" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note)
-    {
-        [self.gameHistory addObject:note.object];
-        [self turnGameHistoryArrayIntoData];
-    }];
+     {
+         [self.gameHistory addObject:note.object];
+         [self turnGameHistoryArrayIntoData];
+     }];
 }
 
 -(void)turnGameHistoryArrayIntoData
@@ -76,15 +76,24 @@
     [self performSegueWithIdentifier:@"segueHistory" sender:self];
 }
 
+-(void)deleteGamesFromHistory:(NSMutableArray *)newHistoryArray
+{
+    self.gameHistory = newHistoryArray;
+    [self turnGameHistoryArrayIntoData];
+
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"segueHistory"]) {
         HistoryVC *hvc = [segue destinationViewController];
         hvc.gameHistory = self.gameHistory;
+        hvc.delegateCustom = self;
     }
     if ([segue.identifier isEqualToString:@"segueNewGame"])
     {
-    NewGameVC *ngvc = [segue destinationViewController];
+        NewGameVC *ngvc = [segue destinationViewController];
+        ngvc.labelError.text = @"Select 2-4 Players";
     }
 }
 

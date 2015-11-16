@@ -41,13 +41,18 @@
     cell.detailTextLabel.textColor = [UIColor yellowColor];
     cell.textLabel.text = ((Game *)(historyArray[indexPath.row])).winningMessage;
     cell.textLabel.textColor = [UIColor yellowColor];
-    cell.textLabel.numberOfLines = 3;
+    cell.textLabel.numberOfLines = 4;
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [historyArray count];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 75;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,6 +70,7 @@
     [historyArray removeObjectAtIndex:indexPath.row];
     
     [tableView endUpdates];
+    [self.delegateCustom deleteGamesFromHistory:historyArray];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
