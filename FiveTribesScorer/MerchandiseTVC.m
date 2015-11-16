@@ -21,6 +21,7 @@
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"MerchandiseTVCell" bundle:nil] forCellReuseIdentifier:@"merchTVCell"];
       cards = [[NSArray alloc]initWithObjects:@"Cloth", @"Fish", @"Gems", @"Gold", @"Ivory", @"Paper", @"Pots", @"Spices", @"Wheat", @"Fakiers", nil];
+    //create branch
 }
 
 -(MerchandiseTVCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
