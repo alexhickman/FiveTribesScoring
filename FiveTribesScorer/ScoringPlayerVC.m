@@ -29,6 +29,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor brownColor];
+    self.navigationItem.title = self.currentPlayer.name;
     
     UIImageView *keypad = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"keypad"]];
     

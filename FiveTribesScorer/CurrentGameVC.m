@@ -28,6 +28,10 @@
     selectedPlayer = [Player newPlayer];
     self.tableViewCurrentGame.frame = CGRectMake(0, 100, self.view.frame.size.width, 300);
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.labelError.text = @"";
+}
 
 -(CurrentGameTVCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -36,6 +40,7 @@
     if (!cell) {
         cell = [[CurrentGameTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.labelName.backgroundColor = [UIColor brownColor];
     cell.labelScore.backgroundColor = [UIColor brownColor];
     cell.backgroundColor = [UIColor brownColor];
@@ -75,7 +80,7 @@
     [self.tableViewCurrentGame reloadData];
 }
 
--(void)determineWinner
+-(BOOL)determineWinner
 {
     //put scores into separate array
     NSMutableArray *endScores = [[NSMutableArray alloc]initWithCapacity:4];
@@ -97,6 +102,9 @@
             highScore = [score integerValue];
             scoreIndex = [endScores indexOfObject:score];
         }
+    }
+    if (highScore == 0) {
+        return false;
     }
     
     ((Player *)self.currentGame.currentPlayers[scoreIndex]).winner = YES;
@@ -122,6 +130,7 @@
     {
         self.currentGame.winningMessage = [NSString stringWithFormat:@"The Winner\n%@", ((Player *)self.currentGame.currentPlayers[scoreIndex]).name];
     }
+    return true;
 }
 
 - (IBAction)buttonLeaveGame:(id)sender
@@ -133,11 +142,16 @@
 {
     self.currentGame.completedDate = [NSDate date];
     Game *gameToSave = [[Game alloc]init];
-    [self determineWinner];
-    
+    if ([self determineWinner])
+    {
     gameToSave = self.currentGame;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"saveGame" object:gameToSave];
     [self performSegueWithIdentifier:@"segueEndGame" sender:self];
+    }
+    else
+    {
+    self.labelError.text = @"Please enter some scores";
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

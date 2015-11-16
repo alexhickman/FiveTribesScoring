@@ -26,7 +26,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSMutableArray *gameHist = [defaults objectForKey:@"gameHistory"];
-//    [defaults removeObjectForKey:@"gameHistory"];
+    [defaults removeObjectForKey:@"gameHistory"];
     if (gameHist)
     {
         self.gameHistory = [self turnGameHistoryDataIntoArrayOfObjects:[defaults objectForKey:@"gameHistory"]];

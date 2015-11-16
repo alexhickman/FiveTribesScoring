@@ -140,16 +140,12 @@
 
 - (IBAction)unwindNewGame:(UIStoryboardSegue *)unwindSegue
 {
-    UIViewController* sourceViewController = unwindSegue.sourceViewController;
-    
+    UIViewController *sourceViewController = unwindSegue.sourceViewController;
     if ([sourceViewController isKindOfClass:[EndGameVC class]])
     {
         NSLog(@"Coming from EndGame!");
     }
- 
-    
 }
-
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
