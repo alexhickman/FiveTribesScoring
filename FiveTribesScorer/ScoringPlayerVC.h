@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ManualInputVC.h"
 #import "Player.h"
+#import "MerchandiseTVC.h"
 
 @protocol savingCurrentScoresDelegate
 
@@ -16,7 +17,7 @@
 
 @end
 
-@interface ScoringPlayerVC : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, manualInputProtocol>
+@interface ScoringPlayerVC : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, manualInputProtocol, merchandiseProtocol>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerViewScores;
 @property (strong, nonatomic) Player *currentPlayer;

@@ -50,6 +50,15 @@
     cell.selectedBackgroundView = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor brownColor];
     [cell reloadData];
+    
+    if (indexPath.row == 9) {
+        [cell setSelectedItem:self.currentPlayer.fakirs];
+    }
+    else
+    {
+    [cell setSelectedItem:((NSNumber*)(self.currentPlayer.merchandise[indexPath.row])).intValue];
+    }
+    
     return cell;
 }
 
@@ -81,14 +90,13 @@
 
 - (IBAction)buttonSave:(id)sender
 {
-    
+    [self.delegateCustom passingMerchandiseCardsBack:self.currentPlayer];
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 - (IBAction)buttonCancel:(id)sender
 {
     [self.navigationController popViewControllerAnimated:true];
 }
-
-
 
 @end

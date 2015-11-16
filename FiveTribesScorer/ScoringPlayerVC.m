@@ -292,6 +292,12 @@
     }
 }
 
+//custom delegate method from merchandiseTVC
+-(void)passingMerchandiseCardsBack:(Player *)scoredPlayer
+{
+    self.currentPlayer = scoredPlayer;
+}
+
 - (IBAction)buttonSave:(id)sender {
     self.currentPlayer.gold = gold;
     self.currentPlayer.yellowVizier = yellowVizier;
@@ -327,6 +333,7 @@
     {
         MerchandiseTVC *mvc = [segue destinationViewController];
         mvc.currentPlayer = self.currentPlayer;
+//        mvc.delega
     }
     
 }
