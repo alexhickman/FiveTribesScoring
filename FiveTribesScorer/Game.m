@@ -25,6 +25,10 @@
         for (int i = 0; i < numberOfPlayers; i++) {
             [self.currentPlayers addObject:[Player newPlayer]];
         }
+        self.ownerOfAlAmin = @"";
+        self.ownerOfHaurvatat = @"";
+        self.ownerOfJafaar = @"";
+        self.ownerOfShamhat = @"";
     }
     return self;
 }
@@ -34,6 +38,11 @@
     [aCoder encodeInteger:self.numberOfPlayers forKey:@"numberOfPlayers"];
     [aCoder encodeObject:self.completedDate forKey:@"completedDate"];
     [aCoder encodeObject:self.winningMessage forKey:@"winningMessage"];
+    
+    [aCoder encodeObject:self.ownerOfAlAmin forKey:@"ownerOfAlAmin"];
+    [aCoder encodeObject:self.ownerOfHaurvatat forKey:@"ownerOfHaurvatat"];
+    [aCoder encodeObject:self.ownerOfJafaar forKey:@"ownerOfJafaar"];
+    [aCoder encodeObject:self.ownerOfShamhat forKey:@"ownerOfShamhat"];
     
     NSMutableArray *archiveArray = [[NSMutableArray alloc]init];
     for (Player *playerObject in self.currentPlayers) {

@@ -10,10 +10,10 @@
 
 @implementation Scoring
 
-+(NSMutableArray *)calculateMerchandiseSets:(NSMutableArray *)merchandiseCards
++(NSMutableArray *)calculateMerchandiseSetsWith:(NSMutableArray *)merchandiseCards numberOfFakirs:(NSInteger)fakirCount hasAlAminDjinn:(BOOL)includeFakirs
 {
     NSMutableArray *sortedCards = [[NSMutableArray alloc]init];
-    NSInteger currentIndex = 0;
+    NSInteger numberOfWilds = fakirCount / 2;
     
     //eliminate zero values
     for (NSNumber *ammountOfCards in merchandiseCards)
@@ -23,21 +23,62 @@
             NSLog(@"zero value");
             continue;
         }
-        else if (sortedCards.count == 0)
-        {
-            [sortedCards addObject:ammountOfCards];
-            currentIndex = 0;
-        }
         else
         {
             [sortedCards addObject:ammountOfCards];
-            currentIndex++;
         }
     }
     
     //order cards
     NSSortDescriptor *highestToLowest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO];
     [sortedCards sortUsingDescriptors:[NSArray arrayWithObject:highestToLowest]];
+    
+    //add wild cards to merchandise for Djinn Al-Amin end score
+    if (includeFakirs == YES)
+    {
+        while (sortedCards.count < 9 && numberOfWilds > 0)
+        {
+            [sortedCards addObject:[NSNumber numberWithInteger:1]];
+            numberOfWilds--;
+        }
+        
+        //At this point array is full up to index 8
+        for (int i = 8; numberOfWilds > 0; i--)
+        {
+            if (i > 5)
+            {
+                if ([[sortedCards objectAtIndex:i] compare: [NSNumber numberWithInteger: 2]] == NSOrderedSame)
+                {
+                    continue;
+                }
+            }
+            else if (i > 2 && i <= 5)
+            {
+                if ([[sortedCards objectAtIndex:i] compare: [NSNumber numberWithInteger: 4]] == NSOrderedSame)
+                {
+                    continue;
+                }
+            }
+            else if (i >= 0 && i <= 3)
+            {
+                if ([[sortedCards objectAtIndex:i] compare: [NSNumber numberWithInteger: 6]] == NSOrderedSame)
+                {
+                    continue;
+                }
+            }
+            //just incase
+            else if (i < 0)
+            {
+                break;
+            }
+            else
+            {
+                NSNumber *newValue = [NSNumber numberWithInteger:((NSNumber*)[sortedCards objectAtIndex:i]).integerValue + 1];
+                [sortedCards replaceObjectAtIndex:i withObject:newValue];
+                numberOfWilds--;
+            }
+        }
+    }
     
     //determine set sizes
     NSMutableArray *arrayOfSetSizes = [[NSMutableArray alloc]init];
@@ -52,7 +93,7 @@
                 [sortedCards replaceObjectAtIndex:j withObject:newValue];
             }
         }
-        [sortedCards removeObjectAtIndex:i -1];
+        [sortedCards removeObjectAtIndex:i - 1];
     }
     return arrayOfSetSizes;
 }
@@ -103,6 +144,40 @@
     return merchandiseScore;
 }
 
++ (NSInteger)calculatePlayerScoreWith:(Player *)currentPlayer
+{
+    NSInteger yellowVizierPoints;
+    NSInteger whiteElderPoints;
+    NSInteger palmTreePoints;
+    NSInteger palacePoints = currentPlayer.palaces * 5;
+    
+    if (currentPlayer.hasAlAmin) {
+        yellowVizierPoints = currentPlayer.yellowVizier * 3;
+    }
+    else
+    {
+        yellowVizierPoints = currentPlayer.yellowVizier;
+    }
+    
+    if (currentPlayer.hasShamhat) {
+        whiteElderPoints = currentPlayer.whiteElder * 4;
+    }
+    else
+    {
+        whiteElderPoints = currentPlayer.whiteElder * 2;
+    }
+    
+    if (currentPlayer.hasHaurvatat) {
+        palmTreePoints = currentPlayer.palmTrees * 5;
+    }
+    else
+    {
+        palmTreePoints = currentPlayer.palmTrees * 3;
+    }
+    
+    NSInteger playerScore = currentPlayer.gold + yellowVizierPoints + whiteElderPoints + palmTreePoints + palacePoints + currentPlayer.tiles + currentPlayer.merchandiseScore + currentPlayer.djinnCardScore;
 
+    return playerScore;
+}
 
 @end

@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Player.h"
 
 @interface Scoring : NSObject
 
-+(NSMutableArray *)calculateMerchandiseSets:(NSMutableArray *)merchandiseCards;
++(NSMutableArray *)calculateMerchandiseSetsWith:(NSMutableArray *)merchandiseCards numberOfFakirs:(NSInteger)fakirCount hasAlAminDjinn:(BOOL)includeFakirs;
 +(NSInteger)calculateMerchandiseScoreWith:(NSMutableArray *)merchandiseCardSets;
+
++(NSInteger)calculatePlayerScoreWith:(Player *)currentPlayer;
 
 @end

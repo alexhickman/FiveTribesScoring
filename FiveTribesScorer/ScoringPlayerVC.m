@@ -10,6 +10,7 @@
 #import "ManualInputVC.h"
 #import "MerchandiseTVC.h"
 #import "DjinnVC.h"
+#import "Scoring.h"
 
 @implementation ScoringPlayerVC
 {
@@ -46,7 +47,7 @@
     yellowVizier = self.currentPlayer.yellowVizier;
     whiteElder = self.currentPlayer.whiteElder;
     palmTrees = self.currentPlayer.palmTrees;
-    palaces = self.currentPlayer.palace;
+    palaces = self.currentPlayer.palaces;
     tiles = self.currentPlayer.tiles;
     
     [self.pickerViewScores selectRow:gold + [pickerDataHundred count] inComponent:0 animated:NO];
@@ -61,7 +62,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    if (self.currentPlayer.merchaniseScore == 0) {
+    if (self.currentPlayer.merchandiseScore == 0) {
         self.labelMerchandise.text = @"Please enter your merchandise cards";
     }
     else
@@ -71,7 +72,7 @@
         {
             message = [NSString stringWithFormat:@"%@  %@", message, [self.currentPlayer.merchSets objectAtIndex:i]];
         }
-        message = [NSString stringWithFormat:@"%@\nScore: %ld", message, (long)self.currentPlayer.merchaniseScore] ;
+        message = [NSString stringWithFormat:@"%@\nScore: %ld", message, (long)self.currentPlayer.merchandiseScore] ;
         self.labelMerchandise.text = message;
     }
 }
@@ -80,7 +81,7 @@
 {
     headerOfPV = [[NSMutableArray alloc]init];
     NSArray *labels = [[NSArray alloc]initWithObjects:@"Gold", @"Vizier", @"Elder", @"Palm", @"Palace", @"Tile", nil];
-    for (int i = 0; i<6; i++)
+    for (int i = 0; i < 6; i++)
     {
         [self makeLabel:i];
         [[headerOfPV objectAtIndex:i] setText:[labels objectAtIndex:i]];
@@ -89,7 +90,6 @@
         [[headerOfPV objectAtIndex:i] setTextAlignment:NSTextAlignmentCenter];
         [self.view addSubview:[headerOfPV objectAtIndex:i]];
     }
-    
 }
 
 -(void)makeLabel:(int)component
@@ -321,9 +321,9 @@
     self.currentPlayer.yellowVizier = yellowVizier;
     self.currentPlayer.whiteElder = whiteElder;
     self.currentPlayer.palmTrees = palmTrees;
-    self.currentPlayer.palace = palaces;
+    self.currentPlayer.palaces = palaces;
     self.currentPlayer.tiles = tiles;
-    self.currentPlayer.totalScore = gold + yellowVizier + (2 * whiteElder) + (3 * palmTrees) + (5 * palaces) + tiles + self.currentPlayer.merchaniseScore;
+    self.currentPlayer.totalScore = [Scoring calculatePlayerScoreWith:self.currentPlayer];
     
     [self.navigationController popViewControllerAnimated:true];
     [self.delegateCustom passingScoresBack:self.currentPlayer atIndex:self.playerIndex];

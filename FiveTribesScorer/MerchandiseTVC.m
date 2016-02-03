@@ -90,8 +90,13 @@
 
 - (IBAction)buttonSave:(id)sender
 {
-    self.currentPlayer.merchSets = [Scoring calculateMerchandiseSets:self.currentPlayer.merchandiseCards];
-    self.currentPlayer.merchaniseScore = [Scoring calculateMerchandiseScoreWith:self.currentPlayer.merchSets];
+    self.currentPlayer.merchSets = [Scoring calculateMerchandiseSetsWith:self.currentPlayer.merchandiseCards numberOfFakirs:self.currentPlayer.fakirs hasAlAminDjinn:NO];
+    
+    self.currentPlayer.merchSetsWithFakirs = [Scoring calculateMerchandiseSetsWith:self.currentPlayer.merchandiseCards numberOfFakirs:self.currentPlayer.fakirs hasAlAminDjinn:YES];
+    
+    self.currentPlayer.merchandiseScore = [Scoring calculateMerchandiseScoreWith:self.currentPlayer.merchSets];
+    self.currentPlayer.merchandiseScoreWithFakirs = [Scoring calculateMerchandiseScoreWith:self.currentPlayer.merchSetsWithFakirs];
+    
     [self.delegateCustom passingMerchandiseCardsBack:self.currentPlayer];
     [self.navigationController popViewControllerAnimated:true];
 }
