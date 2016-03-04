@@ -22,6 +22,7 @@
     NSInteger gold;
     NSInteger yellowVizier;
     NSInteger whiteElder;
+    NSInteger djinnCardScore;
     NSInteger palmTrees;
     NSInteger palaces;
     NSInteger tiles;
@@ -46,6 +47,7 @@
     gold = self.currentPlayer.gold;
     yellowVizier = self.currentPlayer.yellowVizier;
     whiteElder = self.currentPlayer.whiteElder;
+    djinnCardScore = self.currentPlayer.djinnCardScore;
     palmTrees = self.currentPlayer.palmTrees;
     palaces = self.currentPlayer.palaces;
     tiles = self.currentPlayer.tiles;
@@ -53,9 +55,10 @@
     [self.pickerViewScores selectRow:gold + [pickerDataHundred count] inComponent:0 animated:NO];
     [self.pickerViewScores selectRow:yellowVizier + [pickerDataTen count] inComponent:1 animated:NO];
     [self.pickerViewScores selectRow:whiteElder + [pickerDataTen count] inComponent:2 animated:NO];
-    [self.pickerViewScores selectRow:palmTrees + [pickerDataTen count] inComponent:3 animated:NO];
-    [self.pickerViewScores selectRow:palaces + [pickerDataTen count] inComponent:4 animated:NO];
-    [self.pickerViewScores selectRow:tiles + [pickerDataHundred count] inComponent:5 animated:NO];
+    [self.pickerViewScores selectRow:djinnCardScore + [pickerDataHundred count] inComponent:3 animated:NO];
+    [self.pickerViewScores selectRow:palmTrees + [pickerDataTen count] inComponent:4 animated:NO];
+    [self.pickerViewScores selectRow:palaces + [pickerDataTen count] inComponent:5 animated:NO];
+    [self.pickerViewScores selectRow:tiles + [pickerDataHundred count] inComponent:6 animated:NO];
     
     [self headersOfPickerViews];
 }
@@ -80,8 +83,8 @@
 -(void)headersOfPickerViews
 {
     headerOfPV = [[NSMutableArray alloc]init];
-    NSArray *labels = [[NSArray alloc]initWithObjects:@"Gold", @"Vizier", @"Elder", @"Palm", @"Palace", @"Tile", nil];
-    for (int i = 0; i < 6; i++)
+    NSArray *labels = [[NSArray alloc]initWithObjects:@"Gold", @"Vizier", @"Elder", @"Djinn", @"Palm", @"Palace", @"Tile", nil];
+    for (int i = 0; i < 7; i++)
     {
         [self makeLabel:i];
         [[headerOfPV objectAtIndex:i] setText:[labels objectAtIndex:i]];
@@ -120,7 +123,7 @@
 {
     UIView *pickerCustomView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, view.frame.size.width, view.frame.size.height)];
     
-    if (component == 0 || component == 5)
+    if (component == 0 || component == 3 || component == 6)
     {
         if ((row % [pickerDataHundred count]) == ([pickerDataHundred count]-1)) {
             UIView *myView = (UIImageView *)pickerDataHundred[(row % [pickerDataHundred count])];
@@ -176,7 +179,7 @@
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (component == 0 || component == 5)
+    if (component == 0 || component == 3 || component == 6)
     {
         return 3*[pickerDataHundred count];
     }
@@ -188,12 +191,12 @@
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 6;
+    return 7;
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if (component == 0 || component == 5)
+    if (component == 0 || component == 3 || component == 6)
     {
         if ((row % [pickerDataHundred count]) == ([pickerDataHundred count] - 1)) {
             currentComponent = component;
@@ -203,23 +206,11 @@
         {
             gold = row % [pickerDataHundred count];
         }
-        else if (component == 1)
-        {
-            yellowVizier = row % [pickerDataTen count];
-        }
-        else if (component == 2)
-        {
-            whiteElder = row % [pickerDataTen count];
-        }
         else if (component == 3)
         {
-            palmTrees = row % [pickerDataTen count];
+            djinnCardScore = row % [pickerDataHundred count];
         }
-        else if (component == 4)
-        {
-            palaces = row % [pickerDataTen count];
-        }
-        else if (component == 5)
+        else if (component == 6)
         {
             tiles = row % [pickerDataHundred count];
         }
@@ -238,10 +229,6 @@
             currentComponent = component;
             [self performSegueWithIdentifier:@"segueManualInput" sender:self];
         }
-        if (component == 0)
-        {
-            gold = row % [pickerDataHundred count];
-        }
         else if (component == 1)
         {
             yellowVizier = row % [pickerDataTen count];
@@ -250,17 +237,13 @@
         {
             whiteElder = row % [pickerDataTen count];
         }
-        else if (component == 3)
+        else if (component == 4)
         {
             palmTrees = row % [pickerDataTen count];
         }
-        else if (component == 4)
-        {
-            palaces = row % [pickerDataTen count];
-        }
         else if (component == 5)
         {
-            tiles = row % [pickerDataHundred count];
+            palaces = row % [pickerDataTen count];
         }
         
         //we want the selection to always be in the SECOND set (so that it looks like it has stuff before and after)
@@ -290,17 +273,21 @@
     }
     else if (component == 3)
     {
-        palmTrees = newRow;
+        djinnCardScore = newRow;
     }
     else if (component == 4)
     {
-        palaces = newRow;
+        palmTrees = newRow;
     }
     else if (component == 5)
     {
+        palaces = newRow;
+    }
+    else if (component == 6)
+    {
         tiles = newRow;
     }
-    if (component == 0 || component == 5)
+    if (component == 0 || component == 3 || component == 6)
     {
         [self.pickerViewScores selectRow:newRow + [pickerDataHundred count] inComponent:component animated:NO];
     }
@@ -316,10 +303,17 @@
     self.currentPlayer = scoredPlayer;
 }
 
+//custom delegate method from djinnVC
+-(void)passingDjinnBack:(Player *)scoredPlayer
+{
+    self.currentPlayer = scoredPlayer;
+}
+
 - (IBAction)buttonSave:(id)sender {
     self.currentPlayer.gold = gold;
     self.currentPlayer.yellowVizier = yellowVizier;
     self.currentPlayer.whiteElder = whiteElder;
+    self.currentPlayer.djinnCardScore = djinnCardScore;
     self.currentPlayer.palmTrees = palmTrees;
     self.currentPlayer.palaces = palaces;
     self.currentPlayer.tiles = tiles;

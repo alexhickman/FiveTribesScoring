@@ -10,6 +10,7 @@
 #import "ManualInputVC.h"
 #import "Player.h"
 #import "MerchandiseTVC.h"
+#import "DjinnVC.h"
 
 @protocol savingCurrentScoresDelegate
 
@@ -17,7 +18,7 @@
 
 @end
 
-@interface ScoringPlayerVC : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, manualInputProtocol, merchandiseProtocol>
+@interface ScoringPlayerVC : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, manualInputProtocol, merchandiseProtocol, djinnProtocol>
 
 @property (weak, nonatomic) IBOutlet UILabel *labelMerchandise;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerViewScores;

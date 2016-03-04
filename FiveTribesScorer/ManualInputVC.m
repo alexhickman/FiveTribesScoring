@@ -19,7 +19,7 @@
 - (IBAction)buttonSubmit:(id)sender
 {
     NSInteger valueEntered = (self.textField.text).integerValue;
-    if (self.component == 0 || self.component == 5)
+    if (self.component == 0 || self.component == 3 || self.component == 6)
     {
         if (valueEntered <= 100)
         {

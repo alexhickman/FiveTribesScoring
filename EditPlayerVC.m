@@ -19,6 +19,12 @@
     self.textField.delegate = self;
 }
 
+//touch outside of textfield gets rid of keyboard
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self view] endEditing:YES];
+}
+
 - (IBAction)buttonClear:(id)sender
 {
     [self.delegateCustom nameChange:@"+ New Player"];

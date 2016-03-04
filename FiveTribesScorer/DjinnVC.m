@@ -7,6 +7,7 @@
 //
 
 #import "DjinnVC.h"
+#import "DjinnTVCell.h"
 
 @interface DjinnVC ()
 
@@ -17,6 +18,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor brownColor];
+}
+
+- (IBAction)touchSwitchAlAmin:(id)sender {
+}
+
+- (IBAction)touchSwitchHaurvatat:(id)sender {
+}
+
+- (IBAction)touchSwitchJafaar:(id)sender {
+}
+
+- (IBAction)touchSwitchShamhat:(id)sender {
+}
+
+- (IBAction)buttonCancel:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:true];
+}
+
+- (IBAction)buttonSave:(id)sender
+{
+    [self.delegateCustom passingDjinnBack:self.currentPlayer];
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 
