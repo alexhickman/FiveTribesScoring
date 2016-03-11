@@ -23,6 +23,16 @@
 @property (weak, nonatomic) IBOutlet UISwitch *switchHaurvatat;
 @property (weak, nonatomic) IBOutlet UISwitch *switchJafaar;
 @property (weak, nonatomic) IBOutlet UISwitch *switchShamhat;
+@property (weak, nonatomic) IBOutlet UILabel *labelAlAminOwner;
+@property (weak, nonatomic) IBOutlet UILabel *labelHaurvatatOwner;
+@property (weak, nonatomic) IBOutlet UILabel *labelJafaarOwner;
+@property (weak, nonatomic) IBOutlet UILabel *labelShamhatOwner;
+
+@property (strong, nonatomic) NSString *ownerOfAlAmin;
+@property (strong, nonatomic) NSString *ownerOfHaurvatat;
+@property (strong, nonatomic) NSString *ownerOfJafaar;
+@property (strong, nonatomic) NSString *ownerOfShamhat;
+
 @property (strong, nonatomic) id <djinnProtocol> delegateCustom;
 
 

@@ -36,7 +36,7 @@
     dateFormatter.dateStyle = NSDateFormatterShortStyle;
     NSDate *date = ((Game *)(historyArray[indexPath.row])).completedDate;
     
-    cell.backgroundColor = [UIColor brownColor];
+    cell.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
     cell.detailTextLabel.textColor = [UIColor yellowColor];
     cell.textLabel.text = ((Game *)(historyArray[indexPath.row])).winningMessage;

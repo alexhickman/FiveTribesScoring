@@ -36,7 +36,4 @@
 
 +(Player *)newPlayer;
 
-
-
-
 @end

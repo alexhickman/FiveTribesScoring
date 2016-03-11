@@ -16,12 +16,14 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     self.navigationItem.title = @"Five Tribes Score App";
-    self.view.backgroundColor = [UIColor brownColor];
+    self.view.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
 }
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    self.buttonNewGame.shadowEnabled = true;
+    self.buttonHistory.shadowEnabled = true;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -69,6 +71,7 @@
 - (IBAction)buttonNewGame:(id)sender
 {
     [self performSegueWithIdentifier:@"segueNewGame" sender:self];
+    
 }
 
 - (IBAction)buttonHistory:(id)sender

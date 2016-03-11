@@ -149,9 +149,20 @@
     NSInteger yellowVizierPoints;
     NSInteger whiteElderPoints;
     NSInteger palmTreePoints;
+    NSInteger merchPoints;
     NSInteger palacePoints = currentPlayer.palaces * 5;
     
-    if (currentPlayer.hasAlAmin) {
+    if (currentPlayer.hasAlAmin)
+    {
+        merchPoints = currentPlayer.merchandiseScoreWithFakirs;
+    }
+    else
+    {
+        merchPoints = currentPlayer.merchandiseScore;
+    }
+    
+    if (currentPlayer.hasJafaar)
+    {
         yellowVizierPoints = currentPlayer.yellowVizier * 3;
     }
     else
@@ -159,7 +170,8 @@
         yellowVizierPoints = currentPlayer.yellowVizier;
     }
     
-    if (currentPlayer.hasShamhat) {
+    if (currentPlayer.hasShamhat)
+    {
         whiteElderPoints = currentPlayer.whiteElder * 4;
     }
     else
@@ -167,7 +179,8 @@
         whiteElderPoints = currentPlayer.whiteElder * 2;
     }
     
-    if (currentPlayer.hasHaurvatat) {
+    if (currentPlayer.hasHaurvatat)
+    {
         palmTreePoints = currentPlayer.palmTrees * 5;
     }
     else
@@ -175,7 +188,7 @@
         palmTreePoints = currentPlayer.palmTrees * 3;
     }
     
-    NSInteger playerScore = currentPlayer.gold + yellowVizierPoints + whiteElderPoints + palmTreePoints + palacePoints + currentPlayer.tiles + currentPlayer.merchandiseScore + currentPlayer.djinnCardScore;
+    NSInteger playerScore = currentPlayer.gold + yellowVizierPoints + whiteElderPoints + palmTreePoints + palacePoints + merchPoints + currentPlayer.tiles + currentPlayer.djinnCardScore;
 
     return playerScore;
 }

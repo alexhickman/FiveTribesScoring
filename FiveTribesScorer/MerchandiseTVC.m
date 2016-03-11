@@ -25,6 +25,8 @@
     self.tableView.allowsSelection = false;
     self.tableView.bounces = false;
     self.tableView.scrollEnabled = false;
+    self.view.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
+
     
     cards = [[NSArray alloc]initWithObjects:@"Wheat", @"Fish", @"Pottery", @"Silk", @"Papyrus", @"Spices", @"Jewels", @"Gold", @"Ivory", @"Fakiers", nil];
     NSNumber *sixCards = [NSNumber numberWithInteger:7];
@@ -48,7 +50,8 @@
     cell.textLabel.text = [cards objectAtIndex:indexPath.row];
     cell.textLabel.textColor = [UIColor yellowColor];
     cell.selectedBackgroundView = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = [UIColor brownColor];
+    cell.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
+
     [cell reloadData];
     
     if (indexPath.row == 9) {
@@ -103,6 +106,7 @@
 
 - (IBAction)buttonCancel:(id)sender
 {
+    [self.delegateCustom passingMerchandiseCardsBack:nil];
     [self.navigationController popViewControllerAnimated:true];
 }
 

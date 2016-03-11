@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor brownColor];
+    self.view.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
+    self.buttonNewGame.shadowEnabled = true;
+    self.buttonPlayAgain.shadowEnabled = true;
     self.labelWinnerMessage.text = self.currentGame.winningMessage;
 }
 
@@ -28,12 +30,6 @@
 - (IBAction)buttonNewGame:(id)sender
 {
     [self performSegueWithIdentifier:@"unwindSegueToNewGame" sender:self];
-}
-
-//just dismisses for now
-- (IBAction)buttonUpload:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

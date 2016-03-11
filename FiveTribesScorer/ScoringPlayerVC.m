@@ -31,8 +31,11 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor brownColor];
+    self.view.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
     self.navigationItem.title = self.currentPlayer.name;
+    self.buttonDjinn.shadowEnabled = true;
+    self.buttonMerchandise.shadowEnabled = true;
+    self.labelDjinn.text = @"Do you have special Djinn's?";
     
     UIImageView *keypad = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"keypad"]];
     
@@ -68,7 +71,7 @@
     if (self.currentPlayer.merchandiseScore == 0) {
         self.labelMerchandise.text = @"Please enter your merchandise cards";
     }
-    else
+    else if (!self.currentPlayer.hasAlAmin)
     {
         NSString *message = @"Sets with sizes: ";
         for (int i = 0; i < self.currentPlayer.merchSets.count; i++)
@@ -76,6 +79,16 @@
             message = [NSString stringWithFormat:@"%@  %@", message, [self.currentPlayer.merchSets objectAtIndex:i]];
         }
         message = [NSString stringWithFormat:@"%@\nScore: %ld", message, (long)self.currentPlayer.merchandiseScore] ;
+        self.labelMerchandise.text = message;
+    }
+    else
+    {
+        NSString *message = @"Sets containing Fakirs with sizes: ";
+        for (int i = 0; i < self.currentPlayer.merchSets.count; i++)
+        {
+            message = [NSString stringWithFormat:@"%@  %@", message, [self.currentPlayer.merchSetsWithFakirs objectAtIndex:i]];
+        }
+        message = [NSString stringWithFormat:@"%@\nScore: %ld", message, (long)self.currentPlayer.merchandiseScoreWithFakirs] ;
         self.labelMerchandise.text = message;
     }
 }
@@ -87,7 +100,12 @@
     for (int i = 0; i < 7; i++)
     {
         [self makeLabel:i];
-        [[headerOfPV objectAtIndex:i] setText:[labels objectAtIndex:i]];
+        ((UILabel *)[headerOfPV objectAtIndex:i]).text = [labels objectAtIndex:i];
+        if (self.view.frame.size.width < 375)
+        {
+            ((UILabel *)[headerOfPV objectAtIndex:i]).font = [UIFont systemFontOfSize:15.0];
+        }
+        
         [[headerOfPV objectAtIndex:i] setColor:[UIColor yellowColor]];
         
         [[headerOfPV objectAtIndex:i] setTextAlignment:NSTextAlignmentCenter];
@@ -104,6 +122,7 @@
                                                                   lblYposition,
                                                                   lblWidth,
                                                                   20)];
+    
     [headerOfPV addObject:newLabel];
 }
 
@@ -122,6 +141,7 @@
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
     UIView *pickerCustomView = [[UIView alloc] initWithFrame:CGRectMake(0, 100, view.frame.size.width, view.frame.size.height)];
+    // UIView *pickerCustomView = [[UIView alloc] init];
     
     if (component == 0 || component == 3 || component == 6)
     {
@@ -167,7 +187,6 @@
         {
             UILabel *mytext = [[UILabel alloc] init];
             mytext.textColor = [UIColor yellowColor];
-            
             mytext.text = pickerDataTen[(row % [pickerDataTen count])];
             [mytext setFrame:CGRectMake(0,0,30,30)];
             mytext.textAlignment = 1;
@@ -175,6 +194,16 @@
         }
         return pickerCustomView;
     }
+}
+
+-(CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component
+{
+    return (self.pickerViewScores.frame.size.width-10)/7;
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 7;
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
@@ -187,11 +216,6 @@
     {
         return 3*[pickerDataTen count];
     }
-}
-
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 7;
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -300,13 +324,16 @@
 //custom delegate method from merchandiseTVC
 -(void)passingMerchandiseCardsBack:(Player *)scoredPlayer
 {
-    self.currentPlayer = scoredPlayer;
+    if (scoredPlayer != nil)
+    {
+        self.currentPlayer = scoredPlayer;
+    }
 }
 
 //custom delegate method from djinnVC
 -(void)passingDjinnBack:(Player *)scoredPlayer
 {
-    self.currentPlayer = scoredPlayer;
+        self.currentPlayer = scoredPlayer;
 }
 
 - (IBAction)buttonSave:(id)sender {
@@ -349,12 +376,17 @@
     {
         MerchandiseTVC *mvc = [segue destinationViewController];
         mvc.currentPlayer = self.currentPlayer;
+        mvc.delegateCustom = self;
     }
     if ([segue.identifier isEqualToString:@"segueDjinn"]) {
         DjinnVC *dvc = [segue destinationViewController];
-        dvc.currentPlayer = self.currentPlayer;
+        dvc.currentPlayer = self.currentPlayer;;
+        dvc.ownerOfAlAmin = self.ownerOfAlAmin;
+        dvc.ownerOfHaurvatat = self.ownerOfHaurvatat;
+        dvc.ownerOfJafaar = self.ownerOfJafaar;
+        dvc.ownerOfShamhat = self.ownerOfShamhat;
+        dvc.delegateCustom = self;
     }
-    
 }
 
 @end

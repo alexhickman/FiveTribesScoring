@@ -11,6 +11,7 @@
 #import "Player.h"
 #import "MerchandiseTVC.h"
 #import "DjinnVC.h"
+#import <KBRoundedButton/KBRoundedButton.h>
 
 @protocol savingCurrentScoresDelegate
 
@@ -20,10 +21,19 @@
 
 @interface ScoringPlayerVC : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, manualInputProtocol, merchandiseProtocol, djinnProtocol>
 
+@property (strong, nonatomic) NSString *ownerOfAlAmin;
+@property (strong, nonatomic) NSString *ownerOfHaurvatat;
+@property (strong, nonatomic) NSString *ownerOfJafaar;
+@property (strong, nonatomic) NSString *ownerOfShamhat;
+
 @property (weak, nonatomic) IBOutlet UILabel *labelMerchandise;
+@property (weak, nonatomic) IBOutlet UILabel *labelDjinn;
+
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerViewScores;
 @property (strong, nonatomic) Player *currentPlayer;
 @property (nonatomic) NSInteger playerIndex;
+@property (weak, nonatomic) IBOutlet KBRoundedButton *buttonMerchandise;
+@property (weak, nonatomic) IBOutlet KBRoundedButton *buttonDjinn;
 
 @property(strong, nonatomic) id <savingCurrentScoresDelegate> delegateCustom;
 

@@ -14,8 +14,9 @@
 {
     [super viewDidLoad];
     [self.textField becomeFirstResponder];
-    self.view.backgroundColor = [UIColor brownColor];
+    self.view.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
 }
+
 - (IBAction)buttonSubmit:(id)sender
 {
     NSInteger valueEntered = (self.textField.text).integerValue;

@@ -23,8 +23,9 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor brownColor];
-    self.labelScoreTitle.backgroundColor = [UIColor brownColor];
+    self.view.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
+    self.labelScoreTitle.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
+    self.buttonEndGame.shadowEnabled = true;
     selectedPlayer = [Player newPlayer];
     self.tableViewCurrentGame.frame = CGRectMake(0, 100, self.view.frame.size.width, 300);
 }
@@ -41,9 +42,9 @@
         cell = [[CurrentGameTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.labelName.backgroundColor = [UIColor brownColor];
-    cell.labelScore.backgroundColor = [UIColor brownColor];
-    cell.backgroundColor = [UIColor brownColor];
+    cell.labelName.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
+    cell.labelScore.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
+    cell.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
     cell.labelName.text = ((Player *)self.currentGame.currentPlayers[indexPath.row]).name;
     cell.labelScore.text = [NSString stringWithFormat:@"%ld", (long)((Player *)self.currentGame.currentPlayers[indexPath.row]).totalScore];
     
@@ -77,6 +78,25 @@
 -(void)passingScoresBack:(Player *)scoredPlayer atIndex:(NSInteger)index
 {
     self.currentGame.currentPlayers[index] = scoredPlayer;
+    
+    //check for Djinn ownership
+    if (scoredPlayer.hasAlAmin)
+    {
+        self.currentGame.ownerOfAlAmin = scoredPlayer.name;
+    }
+    if (scoredPlayer.hasHaurvatat)
+    {
+        self.currentGame.ownerOfHaurvatat = scoredPlayer.name;
+    }
+    if (scoredPlayer.hasJafaar)
+    {
+        self.currentGame.ownerOfJafaar = scoredPlayer.name;
+    }
+    if (scoredPlayer.hasShamhat)
+    {
+        self.currentGame.ownerOfShamhat = scoredPlayer.name;
+    }
+    
     [self.tableViewCurrentGame reloadData];
 }
 
@@ -135,10 +155,20 @@
 
 - (IBAction)buttonLeaveGame:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:true];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Leave Game?" message:@"This will remove scored players!" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *leaveGame = [UIAlertAction actionWithTitle:@"I'm sure." style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController popViewControllerAnimated:true];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:leaveGame];
+    [alert addAction:cancelAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (IBAction)buttonSaveGame:(id)sender
+- (IBAction)buttonEndGame:(id)sender
 {
     self.currentGame.completedDate = [NSDate date];
     Game *gameToSave = [[Game alloc]init];
@@ -161,6 +191,10 @@
         ScoringPlayerVC *scoringPVC = [segue destinationViewController];
         scoringPVC.currentPlayer = selectedPlayer;
         scoringPVC.playerIndex = playerIndex;
+        scoringPVC.ownerOfAlAmin = self.currentGame.ownerOfAlAmin;
+        scoringPVC.ownerOfHaurvatat = self.currentGame.ownerOfHaurvatat;
+        scoringPVC.ownerOfJafaar = self.currentGame.ownerOfJafaar;
+        scoringPVC.ownerOfShamhat = self.currentGame.ownerOfShamhat;
         scoringPVC.delegateCustom = self;
     }
     

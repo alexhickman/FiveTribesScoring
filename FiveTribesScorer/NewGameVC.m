@@ -7,6 +7,7 @@
 //
 
 #import "NewGameVC.h"
+#import "EditPlayerVC.h"
 #import "Game.h"
 #import "Player.h"
 #import "CurrentGameVC.h"
@@ -23,7 +24,11 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor brownColor];
+    self.view.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
+    self.buttonPlayerOne.shadowEnabled = true;
+    self.buttonPlayerTwo.shadowEnabled = true;
+    self.buttonPlayerThree.shadowEnabled = true;
+    self.buttonPlayerFour.shadowEnabled = true;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *buttonDefaults = [defaults objectForKey:@"playerOneButton"];
@@ -157,6 +162,12 @@
     if ([segue.identifier isEqualToString:@"segueEditPlayerModal"]) {
         EditPlayerVC *epvc = [segue destinationViewController];
         epvc.buttonName = nameToPass;
+        
+        epvc.playerOneName = self.buttonPlayerOne.currentTitle;
+        epvc.playerTwoName = self.buttonPlayerTwo.currentTitle;
+        epvc.playerThreeName = self.buttonPlayerThree.currentTitle;
+        epvc.playerFourName = self.buttonPlayerFour.currentTitle;
+        
         epvc.delegateCustom = self;
     }
 }

@@ -23,7 +23,6 @@
 		8821D0B01BE2EBD7009C0E17 /* HistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8821D0AF1BE2EBD7009C0E17 /* HistoryVC.m */; };
 		882529051BFA691D00FFDE78 /* Scoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 882529041BFA691D00FFDE78 /* Scoring.m */; };
 		882529081BFAA20200FFDE78 /* DjinnVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 882529071BFAA20200FFDE78 /* DjinnVC.m */; };
-		882DBE061C6583460043CA15 /* DjinnTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 882DBE051C6583460043CA15 /* DjinnTVCell.m */; };
 		886CE1FD1BE4824000BCA725 /* CurrentGameTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */; };
 		886CE2031BE5B86400BCA725 /* ManualInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CE2021BE5B86400BCA725 /* ManualInputVC.m */; };
 		889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889FD8A71BE3FC08001F2EC8 /* Main.storyboard */; };
@@ -81,8 +80,6 @@
 		882529041BFA691D00FFDE78 /* Scoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scoring.m; sourceTree = "<group>"; };
 		882529061BFAA20200FFDE78 /* DjinnVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DjinnVC.h; sourceTree = "<group>"; };
 		882529071BFAA20200FFDE78 /* DjinnVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DjinnVC.m; sourceTree = "<group>"; };
-		882DBE041C6583460043CA15 /* DjinnTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DjinnTVCell.h; sourceTree = "<group>"; };
-		882DBE051C6583460043CA15 /* DjinnTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DjinnTVCell.m; sourceTree = "<group>"; };
 		886CE1FB1BE4824000BCA725 /* CurrentGameTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentGameTVCell.h; sourceTree = "<group>"; };
 		886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentGameTVCell.m; sourceTree = "<group>"; };
 		886CE2011BE5B86400BCA725 /* ManualInputVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualInputVC.h; sourceTree = "<group>"; };
@@ -172,8 +169,6 @@
 				8821D0771BE2E3AB009C0E17 /* Assets.xcassets */,
 				886CE1FB1BE4824000BCA725 /* CurrentGameTVCell.h */,
 				886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */,
-				882DBE041C6583460043CA15 /* DjinnTVCell.h */,
-				882DBE051C6583460043CA15 /* DjinnTVCell.m */,
 				8821D0791BE2E3AB009C0E17 /* LaunchScreen.storyboard */,
 				8821D07C1BE2E3AB009C0E17 /* Info.plist */,
 				8821D06B1BE2E3AB009C0E17 /* Supporting Files */,
@@ -442,7 +437,6 @@
 				8821A2DD1BE3E96500D2CD4A /* Player.m in Sources */,
 				88C277131BF7EF9800E4ECE6 /* EndGameVC.m in Sources */,
 				8821D0A31BE2E476009C0E17 /* CurrentGameVC.m in Sources */,
-				882DBE061C6583460043CA15 /* DjinnTVCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,7 +579,7 @@
 				INFOPLIST_FILE = FiveTribesScorer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bitlore.FiveTribesScorer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hickman.FiveTribesScorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -598,7 +592,7 @@
 				INFOPLIST_FILE = FiveTribesScorer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bitlore.FiveTribesScorer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hickman.FiveTribesScorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

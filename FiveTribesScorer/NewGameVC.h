@@ -8,19 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "EditPlayerVC.h"
-
+#import <KBRoundedButton/KBRoundedButton.h>
 
 @interface NewGameVC : UIViewController <editPlayerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *buttonPlayerOne;
-@property (weak, nonatomic) IBOutlet UIButton *buttonPlayerTwo;
-@property (weak, nonatomic) IBOutlet UIButton *buttonPlayerThree;
-@property (weak, nonatomic) IBOutlet UIButton *buttonPlayerFour;
+@property (weak, nonatomic) IBOutlet KBRoundedButton *buttonPlayerOne;
+@property (weak, nonatomic) IBOutlet KBRoundedButton *buttonPlayerTwo;
+@property (weak, nonatomic) IBOutlet KBRoundedButton *buttonPlayerThree;
+@property (weak, nonatomic) IBOutlet KBRoundedButton *buttonPlayerFour;
 
 @property (weak, nonatomic) IBOutlet UILabel *labelError;
-
-
-
-
 
 @end
