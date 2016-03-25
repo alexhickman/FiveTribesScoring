@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoryPlayerCell" rowHeight="100" id="KGk-i7-Jjw" customClass="CategoryTVCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgt-su-rNf">
+                        <rect key="frame" x="120" y="-1" width="200" height="101"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="NKf-9s-P39"/>
+                            <constraint firstAttribute="width" secondItem="qgt-su-rNf" secondAttribute="height" multiplier="2:1" id="O3q-Jc-mpI"/>
+                            <constraint firstAttribute="width" constant="200" id="oFb-5t-3Qs"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="dataSource" destination="-1" id="bws-3d-exX"/>
+                            <outlet property="delegate" destination="-1" id="xmh-vW-2BG"/>
+                        </connections>
+                    </pickerView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moi-hY-6KO">
+                        <rect key="frame" x="10" y="30" width="100" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="J4y-gf-Cmc"/>
+                            <constraint firstAttribute="height" constant="40" id="OmO-6v-9pw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" red="0.96902360430000001" green="1" blue="0.31859522649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lv6-s1-rAb">
+                        <rect key="frame" x="50" y="38" width="50" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="2kx-2R-y0U"/>
+                            <constraint firstAttribute="width" constant="50" id="IYq-2M-eCm"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" red="0.96902360430000001" green="1" blue="0.31859522649999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYb-7M-NmH" customClass="KBRoundedButton">
+                        <rect key="frame" x="120" y="25" width="150" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="XgW-OF-aVa"/>
+                            <constraint firstAttribute="width" constant="150" id="d5Y-J2-ODY"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="qgt-su-rNf" secondAttribute="trailing" id="0tl-g7-nx7"/>
+                    <constraint firstItem="moi-hY-6KO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1uM-Ue-1tA"/>
+                    <constraint firstItem="Lv6-s1-rAb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Kci-YD-rEi"/>
+                    <constraint firstAttribute="trailing" secondItem="iYb-7M-NmH" secondAttribute="trailing" constant="50" id="Qoc-CP-NIK"/>
+                    <constraint firstItem="moi-hY-6KO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="a4M-TJ-vvQ"/>
+                    <constraint firstItem="qgt-su-rNf" firstAttribute="leading" secondItem="Lv6-s1-rAb" secondAttribute="trailing" constant="20" id="iDD-Lt-ehX"/>
+                    <constraint firstItem="qgt-su-rNf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oIb-MI-D09"/>
+                    <constraint firstItem="iYb-7M-NmH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="r4H-OS-PIR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <accessibility key="accessibilityConfiguration" identifier="yup2" label="yup"/>
+            <connections>
+                <outlet property="buttonForThings" destination="iYb-7M-NmH" id="0Km-vQ-k7z"/>
+                <outlet property="labelName" destination="moi-hY-6KO" id="iAi-fR-sw1"/>
+                <outlet property="labelScore" destination="Lv6-s1-rAb" id="bXz-uM-haW"/>
+                <outlet property="pickerView" destination="qgt-su-rNf" id="mEd-GT-4kc"/>
+            </connections>
+            <point key="canvasLocation" x="288" y="367"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -18,5 +18,6 @@
 @property (strong, nonatomic) Game *currentGame;
 @property (weak, nonatomic) IBOutlet UILabel *labelError;
 @property (weak, nonatomic) IBOutlet KBRoundedButton *buttonEndGame;
+@property (weak, nonatomic) IBOutlet KBRoundedButton *buttonCategory;
 
 @end

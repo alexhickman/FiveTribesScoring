@@ -22,8 +22,6 @@ Player *player;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    player = [[Player alloc] init];
-    player = self.currentPlayer;
     self.view.backgroundColor = [UIColor colorWithRed:151.0/255 green:80.0/255 blue:8.0/255 alpha:1.0f];
 }
 
@@ -78,59 +76,49 @@ Player *player;
     }
 }
 
-- (IBAction)touchSwitchAlAmin:(id)sender
-{
-    if (![self.switchAlAmin isOn]) {
-        player.hasAlAmin = false;
-    }
-    else
-    {
-        player.hasAlAmin = true;
-    }
-}
-
-- (IBAction)touchSwitchHaurvatat:(id)sender
-{
-    if (![self.switchHaurvatat isOn]) {
-        self.currentPlayer.hasHaurvatat = false;
-    }
-    else
-    {
-        self.currentPlayer.hasHaurvatat = true;
-    }
-}
-
-- (IBAction)touchSwitchJafaar:(id)sender
-{
-    if (![self.switchJafaar isOn]) {
-        self.currentPlayer.hasJafaar = false;
-    }
-    else
-    {
-        self.currentPlayer.hasJafaar = true;
-    }
-}
-
-- (IBAction)touchSwitchShamhat:(id)sender
-{
-    if (![self.switchShamhat isOn]) {
-        self.currentPlayer.hasShamhat = false;
-    }
-    else
-    {
-        self.currentPlayer.hasShamhat = true;
-    }
-}
-
 - (IBAction)buttonCancel:(id)sender
 {
     [self.navigationController popViewControllerAnimated:true];
-//    [self.delegateCustom passingDjinnBack:player];
 }
 
 - (IBAction)buttonSave:(id)sender
 {
-    [self.delegateCustom passingDjinnBack:self.currentPlayer];
+    if ([self.switchAlAmin isOn])
+    {
+        self.currentPlayer.hasAlAmin = true;
+    }
+    else
+    {
+        self.currentPlayer.hasAlAmin = false;
+    }
+    
+    if ([self.switchHaurvatat isOn])
+    {
+        self.currentPlayer.hasHaurvatat = true;
+    }
+    else
+    {
+        self.currentPlayer.hasHaurvatat = false;
+    }
+    
+    if ([self.switchJafaar isOn])
+    {
+        self.currentPlayer.hasJafaar = true;
+    }
+    else
+    {
+        self.currentPlayer.hasJafaar = false;
+    }
+    
+    if ([self.switchShamhat isOn])
+    {
+        self.currentPlayer.hasShamhat = true;
+    }
+    else
+    {
+        self.currentPlayer.hasShamhat = false;
+    }
+    
     [self.navigationController popViewControllerAnimated:true];
 }
 

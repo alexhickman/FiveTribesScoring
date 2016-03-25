@@ -9,6 +9,7 @@
 #import "HistoryVC.h"
 #import "Game.h"
 #import "CurrentGameVC.h"
+#import "ScorePadVC.h"
 
 @implementation HistoryVC
 {
@@ -58,7 +59,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     oldGameToView = [historyArray objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"segueOldGameView" sender:self];
+//    [self performSegueWithIdentifier:@"segueOldGameView" sender:self];
+    [self performSegueWithIdentifier:@"segueScorePadFromHome" sender:self];
+
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,8 +78,18 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier isEqualToString:@"segueOldGameView"])
+    {
     CurrentGameVC *cgvc = [segue destinationViewController];
     cgvc.currentGame = oldGameToView;
+    }
+    
+    if ([segue.identifier isEqualToString:@"segueScorePadFromHome"])
+    {
+        ScorePadVC *scorePadVC = [segue destinationViewController];
+        scorePadVC.currentGame = oldGameToView;
+    }
+    
 }
 
 @end

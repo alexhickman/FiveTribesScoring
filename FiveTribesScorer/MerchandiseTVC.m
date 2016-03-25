@@ -9,6 +9,7 @@
 #import "MerchandiseTVC.h"
 #import "Scoring.h"
 
+
 @interface MerchandiseTVC ()
 {
     NSArray *cards;

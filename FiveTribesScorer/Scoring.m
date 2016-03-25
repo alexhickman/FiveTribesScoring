@@ -13,7 +13,7 @@
 +(NSMutableArray *)calculateMerchandiseSetsWith:(NSMutableArray *)merchandiseCards numberOfFakirs:(NSInteger)fakirCount hasAlAminDjinn:(BOOL)includeFakirs
 {
     NSMutableArray *sortedCards = [[NSMutableArray alloc]init];
-    NSInteger numberOfWilds = fakirCount / 2;
+    NSInteger numberOfWilds = (fakirCount / 2);
     
     //eliminate zero values
     for (NSNumber *ammountOfCards in merchandiseCards)
@@ -63,7 +63,11 @@
             {
                 if ([[sortedCards objectAtIndex:i] compare: [NSNumber numberWithInteger: 6]] == NSOrderedSame)
                 {
-                    continue;
+                    if (numberOfWilds > 0)
+                    {
+                        i = 8;
+                        continue;
+                    }
                 }
             }
             //just incase
@@ -71,12 +75,10 @@
             {
                 break;
             }
-            else
-            {
-                NSNumber *newValue = [NSNumber numberWithInteger:((NSNumber*)[sortedCards objectAtIndex:i]).integerValue + 1];
-                [sortedCards replaceObjectAtIndex:i withObject:newValue];
-                numberOfWilds--;
-            }
+            
+            NSNumber *newValue = [NSNumber numberWithInteger:((NSNumber*)[sortedCards objectAtIndex:i]).integerValue + 1];
+            [sortedCards replaceObjectAtIndex:i withObject:newValue];
+            numberOfWilds--;
         }
     }
     
@@ -189,7 +191,7 @@
     }
     
     NSInteger playerScore = currentPlayer.gold + yellowVizierPoints + whiteElderPoints + palmTreePoints + palacePoints + merchPoints + currentPlayer.tiles + currentPlayer.djinnCardScore;
-
+    
     return playerScore;
 }
 

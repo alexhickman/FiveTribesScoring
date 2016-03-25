@@ -27,6 +27,12 @@
 		886CE2031BE5B86400BCA725 /* ManualInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 886CE2021BE5B86400BCA725 /* ManualInputVC.m */; };
 		889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 889FD8A71BE3FC08001F2EC8 /* Main.storyboard */; };
 		889FD8AF1BE41BAD001F2EC8 /* EditPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 889FD8AE1BE41BAD001F2EC8 /* EditPlayerVC.m */; };
+		88B0444A1C935A21008A6738 /* ScorePadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B044491C935A21008A6738 /* ScorePadVC.m */; };
+		88B044561C962B62008A6738 /* CategoryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B044551C962B62008A6738 /* CategoryTVC.m */; };
+		88B044B61C98E38C008A6738 /* CategoryTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B044B41C98E38C008A6738 /* CategoryTVCell.m */; };
+		88B044B71C98E38C008A6738 /* CategoryTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B044B51C98E38C008A6738 /* CategoryTVCell.xib */; };
+		88B044BD1C9900CF008A6738 /* CategoryHeaderTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B044BB1C9900CF008A6738 /* CategoryHeaderTVCell.m */; };
+		88B044BE1C9900CF008A6738 /* CategoryHeaderTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88B044BC1C9900CF008A6738 /* CategoryHeaderTVCell.xib */; };
 		88C277101BF7D2FC00E4ECE6 /* MerchandiseTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */; };
 		88C277131BF7EF9800E4ECE6 /* EndGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C277121BF7EF9800E4ECE6 /* EndGameVC.m */; };
 /* End PBXBuildFile section */
@@ -87,6 +93,16 @@
 		889FD8A81BE3FC08001F2EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		889FD8AD1BE41BAD001F2EC8 /* EditPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPlayerVC.h; path = ../EditPlayerVC.h; sourceTree = "<group>"; };
 		889FD8AE1BE41BAD001F2EC8 /* EditPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPlayerVC.m; path = ../EditPlayerVC.m; sourceTree = "<group>"; };
+		88B044481C935A21008A6738 /* ScorePadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScorePadVC.h; sourceTree = "<group>"; };
+		88B044491C935A21008A6738 /* ScorePadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScorePadVC.m; sourceTree = "<group>"; };
+		88B044541C962B62008A6738 /* CategoryTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTVC.h; sourceTree = "<group>"; };
+		88B044551C962B62008A6738 /* CategoryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTVC.m; sourceTree = "<group>"; };
+		88B044B31C98E38C008A6738 /* CategoryTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTVCell.h; sourceTree = "<group>"; };
+		88B044B41C98E38C008A6738 /* CategoryTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTVCell.m; sourceTree = "<group>"; };
+		88B044B51C98E38C008A6738 /* CategoryTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryTVCell.xib; sourceTree = "<group>"; };
+		88B044BA1C9900CF008A6738 /* CategoryHeaderTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryHeaderTVCell.h; sourceTree = "<group>"; };
+		88B044BB1C9900CF008A6738 /* CategoryHeaderTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryHeaderTVCell.m; sourceTree = "<group>"; };
+		88B044BC1C9900CF008A6738 /* CategoryHeaderTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryHeaderTVCell.xib; sourceTree = "<group>"; };
 		88C2770E1BF7D2FC00E4ECE6 /* MerchandiseTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchandiseTVC.h; sourceTree = "<group>"; };
 		88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchandiseTVC.m; sourceTree = "<group>"; };
 		88C277111BF7EF9800E4ECE6 /* EndGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameVC.h; sourceTree = "<group>"; };
@@ -169,8 +185,8 @@
 				8821D0771BE2E3AB009C0E17 /* Assets.xcassets */,
 				886CE1FB1BE4824000BCA725 /* CurrentGameTVCell.h */,
 				886CE1FC1BE4824000BCA725 /* CurrentGameTVCell.m */,
-				8821D0791BE2E3AB009C0E17 /* LaunchScreen.storyboard */,
 				8821D07C1BE2E3AB009C0E17 /* Info.plist */,
+				8821D0791BE2E3AB009C0E17 /* LaunchScreen.storyboard */,
 				8821D06B1BE2E3AB009C0E17 /* Supporting Files */,
 			);
 			path = FiveTribesScorer;
@@ -215,6 +231,14 @@
 				889FD8AE1BE41BAD001F2EC8 /* EditPlayerVC.m */,
 				8821D0A11BE2E476009C0E17 /* CurrentGameVC.h */,
 				8821D0A21BE2E476009C0E17 /* CurrentGameVC.m */,
+				88B044541C962B62008A6738 /* CategoryTVC.h */,
+				88B044551C962B62008A6738 /* CategoryTVC.m */,
+				88B044B31C98E38C008A6738 /* CategoryTVCell.h */,
+				88B044B41C98E38C008A6738 /* CategoryTVCell.m */,
+				88B044B51C98E38C008A6738 /* CategoryTVCell.xib */,
+				88B044BA1C9900CF008A6738 /* CategoryHeaderTVCell.h */,
+				88B044BB1C9900CF008A6738 /* CategoryHeaderTVCell.m */,
+				88B044BC1C9900CF008A6738 /* CategoryHeaderTVCell.xib */,
 				8821D0A51BE2E530009C0E17 /* ScoringPlayerVC.h */,
 				8821D0A61BE2E530009C0E17 /* ScoringPlayerVC.m */,
 				886CE2011BE5B86400BCA725 /* ManualInputVC.h */,
@@ -223,6 +247,8 @@
 				88C2770F1BF7D2FC00E4ECE6 /* MerchandiseTVC.m */,
 				882529061BFAA20200FFDE78 /* DjinnVC.h */,
 				882529071BFAA20200FFDE78 /* DjinnVC.m */,
+				88B044481C935A21008A6738 /* ScorePadVC.h */,
+				88B044491C935A21008A6738 /* ScorePadVC.m */,
 				88C277111BF7EF9800E4ECE6 /* EndGameVC.h */,
 				88C277121BF7EF9800E4ECE6 /* EndGameVC.m */,
 			);
@@ -349,6 +375,8 @@
 				889FD8A91BE3FC08001F2EC8 /* Main.storyboard in Resources */,
 				8821D07B1BE2E3AB009C0E17 /* LaunchScreen.storyboard in Resources */,
 				8821D0781BE2E3AB009C0E17 /* Assets.xcassets in Resources */,
+				88B044BE1C9900CF008A6738 /* CategoryHeaderTVCell.xib in Resources */,
+				88B044B71C98E38C008A6738 /* CategoryTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,15 +456,19 @@
 				8821D0701BE2E3AB009C0E17 /* AppDelegate.m in Sources */,
 				8821D0AD1BE2EA05009C0E17 /* HomeScreenVC.m in Sources */,
 				8821D06D1BE2E3AB009C0E17 /* main.m in Sources */,
+				88B044B61C98E38C008A6738 /* CategoryTVCell.m in Sources */,
 				889FD8AF1BE41BAD001F2EC8 /* EditPlayerVC.m in Sources */,
 				8821A2E01BE3E9AD00D2CD4A /* Game.m in Sources */,
 				88C277101BF7D2FC00E4ECE6 /* MerchandiseTVC.m in Sources */,
 				882529051BFA691D00FFDE78 /* Scoring.m in Sources */,
 				8821D0A71BE2E530009C0E17 /* ScoringPlayerVC.m in Sources */,
 				8821D0A01BE2E43C009C0E17 /* NewGameVC.m in Sources */,
+				88B044561C962B62008A6738 /* CategoryTVC.m in Sources */,
 				8821A2DD1BE3E96500D2CD4A /* Player.m in Sources */,
 				88C277131BF7EF9800E4ECE6 /* EndGameVC.m in Sources */,
 				8821D0A31BE2E476009C0E17 /* CurrentGameVC.m in Sources */,
+				88B044BD1C9900CF008A6738 /* CategoryHeaderTVCell.m in Sources */,
+				88B0444A1C935A21008A6738 /* ScorePadVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

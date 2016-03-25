@@ -7,6 +7,7 @@
 //
 
 #import "EndGameVC.h"
+#import "ScorePadVC.h"
 
 @interface EndGameVC ()
 
@@ -32,5 +33,18 @@
     [self performSegueWithIdentifier:@"unwindSegueToNewGame" sender:self];
 }
 
+- (IBAction)buttonScorePad:(id)sender
+{
+    [self performSegueWithIdentifier:@"segueScorePad" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"segueScorePad"])
+    {
+        ScorePadVC *spvc = [segue destinationViewController];
+        spvc.currentGame = self.currentGame;
+    }
+}
 
 @end

@@ -8,6 +8,7 @@
 
 #import "CurrentGameVC.h"
 #import "CurrentGameTVCell.h"
+#import "CategoryTVC.h"
 #import "ScoringPlayerVC.h"
 #import "Player.h"
 #import "EndGameVC.h"
@@ -84,17 +85,33 @@
     {
         self.currentGame.ownerOfAlAmin = scoredPlayer.name;
     }
+    else if ([self.currentGame.ownerOfAlAmin isEqualToString:scoredPlayer.name])
+    {
+        self.currentGame.ownerOfAlAmin = @"";
+    }
     if (scoredPlayer.hasHaurvatat)
     {
         self.currentGame.ownerOfHaurvatat = scoredPlayer.name;
+    }
+    else if ([self.currentGame.ownerOfHaurvatat isEqualToString:scoredPlayer.name])
+    {
+        self.currentGame.ownerOfHaurvatat = @"";
     }
     if (scoredPlayer.hasJafaar)
     {
         self.currentGame.ownerOfJafaar = scoredPlayer.name;
     }
+    else if ([self.currentGame.ownerOfJafaar isEqualToString:scoredPlayer.name])
+    {
+        self.currentGame.ownerOfJafaar = @"";
+    }
     if (scoredPlayer.hasShamhat)
     {
         self.currentGame.ownerOfShamhat = scoredPlayer.name;
+    }
+    else if ([self.currentGame.ownerOfShamhat isEqualToString:scoredPlayer.name])
+    {
+        self.currentGame.ownerOfShamhat = @"";
     }
     
     [self.tableViewCurrentGame reloadData];
@@ -155,7 +172,7 @@
 
 - (IBAction)buttonLeaveGame:(id)sender
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Leave Game?" message:@"This will remove scored players!" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Leave Game?" message:@"This will remove scored players!" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *leaveGame = [UIAlertAction actionWithTitle:@"I'm sure." style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController popViewControllerAnimated:true];
@@ -204,6 +221,11 @@
         Game *gameToPass = [[Game alloc]init];
         gameToPass = self.currentGame;
         endGameVC.currentGame = gameToPass;
+    }
+    if ([segue.identifier isEqualToString:@"segueCategory"])
+    {
+        CategoryTVC *categoryTVC = [segue destinationViewController];
+        categoryTVC.currentGame = self.currentGame;
     }
 }
 
